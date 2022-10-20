@@ -1465,7 +1465,7 @@ class: top, left
 ### Take-Aways
 
 .full-width[.content-box-gray[
-* Psychologie befasst sich mit **Verhalte, Erleben und Bewusstsein**
+* Psychologie befasst sich mit **Verhalten, Erleben und Bewusstsein**
 
 * Ziele psychologischer Forschungsarbeit sind **Beschreibung, Erklärung, Vorhersage Kontrolle**
 
