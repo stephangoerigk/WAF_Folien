@@ -1,60 +1,24 @@
----
-title: "Einheit"
-subtitle: "⚔<br/>with xaringan"
-author: "Dr. Stephan Goerigk"
-institute: "RStudio, PBC"
-date: "2016/12/12 (updated: `r Sys.Date()`)"
-output:
-  xaringan::moon_reader:
-    css: [xaringan-themer.css, "hygge"]
-    lib_dir: libs
-    nature:
-      slideNumberFormat: "%current%"
-      highlightStyle: github
-      highlightLines: true
-      countIncrementalSlides: false
-      ratio: '16:9'
-    seal: false
----
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Einheit</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Stephan Goerigk" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/hygge.css" rel="stylesheet" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
 
-```{r setup, include=FALSE}
-options(htmltools.dir.version = FALSE)
 
-setwd("/Users/stephangoerigk/Desktop/Universität/CFH/Lehre/Bachelor/Empirisch-wissenschaftliches Arbeiten/VO_Wissenschaftliches Arbeiten und Forschungsmethoden/WAF_Folien/")
 
-library(tidyverse)
-library(kableExtra)
-library(ggplot2)
-library(plotly)
-library(htmlwidgets)
-library(MASS)
-library(ggpubr)
-library(xaringanthemer)
-library(xaringanExtra)
-
-style_duo_accent(
-  primary_color = "#621C37",
-  secondary_color = "#EE0071",
-  background_image = "blank.png"
-)
-
-xaringanExtra::use_xaringan_extra(c("tile_view"))
-
-# use_scribble(
-#   pen_color = "#EE0071",
-#   pen_size = 4
-#   )
-
-knitr::opts_chunk$set(
-  fig.retina = TRUE,
-  warning = FALSE,
-  message = FALSE
-)
-```
 
 name: Title slide
 class: middle, left
-<br><br><br><br><br><br><br>
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
 # Wissenschaftliches Arbeiten und Forschungsmethoden
 
 ### Einheit 2: Themensuche und Bewertung von Untersuchungsideen
@@ -70,7 +34,7 @@ name: Contact Slide
 
 Kerkriterium für Qualität einer empirischen Untersuchung: 
 
-$\rightarrow$ Muss den Bestand an gesichertem Wissen im jeweiligen Untersuchungsbereich **erweitern**.
+`\(\rightarrow\)` Muss den Bestand an gesichertem Wissen im jeweiligen Untersuchungsbereich **erweitern**.
 
 Schwierigkeiten für Wissenschaftler:innen und Student:innen
 
@@ -98,7 +62,7 @@ Großteil des Unterrichts:
 
 * Vermittlung präziser **Techniken** zur Prüfung von Hypothesen (**hypothesenprüfender Teil**)
 
-* Augenmerk auf das "wie" $\rightarrow$ Operationalisierung, Auswertung und Interpretation
+* Augenmerk auf das "wie" `\(\rightarrow\)` Operationalisierung, Auswertung und Interpretation
 
 * wenig Zeit verfällt auf Strategien, **schöpferische Forschungsideen** zu finden (**hypothesenkreierender Teil**)
 
@@ -118,7 +82,7 @@ name: Contact Slide
 Shields (1975)
 ]
 
-$\rightarrow$ Forderung nach einer **wertfreien**, von **neutralen** Personen getragenen Wissenschaft
+`\(\rightarrow\)` Forderung nach einer **wertfreien**, von **neutralen** Personen getragenen Wissenschaft
 
 **ABER:** Vorteile der Themenwahl nach eigenem Interesse/Einstellungen
 
@@ -126,7 +90,7 @@ $\rightarrow$ Forderung nach einer **wertfreien**, von **neutralen** Personen ge
 
 * frühzeitiger Abbruch der Arbeit kann verhindert werden 
 
-$\rightarrow$ Kreative und bahnbrechende Forschung  nur möglich, wenn Forschende das Recht haben, sich engagiert für den empirischen Beleg ihrer Ideen einzusetzen.
+`\(\rightarrow\)` Kreative und bahnbrechende Forschung  nur möglich, wenn Forschende das Recht haben, sich engagiert für den empirischen Beleg ihrer Ideen einzusetzen.
 
 ---
 class: top, left
@@ -149,8 +113,8 @@ name: Contact Slide
 * eigene Beobachtungen
 
 **Tipps:**
-* Datum vermerken $\rightarrow$ Ideengeschichte kann abgebildet werden
-* Quelle notieren $\rightarrow$ Vorteil für weiterführende Literaturrecherchen
+* Datum vermerken `\(\rightarrow\)` Ideengeschichte kann abgebildet werden
+* Quelle notieren `\(\rightarrow\)` Vorteil für weiterführende Literaturrecherchen
 
 ---
 class: top, left
@@ -233,7 +197,7 @@ name: Contact Slide
 
 #### Anregungen zur gezielten Themensuche
 
-**Kreative Strategien** (Bortz & Döring):
+**Kreative Strategien** (Bortz &amp; Döring):
 
 1. Intensive Fallstudien
 
@@ -259,7 +223,7 @@ name: Contact Slide
 
 #### Anregungen zur gezielten Themensuche
 
-**Kreative Strategien** (Bortz & Döring):
+**Kreative Strategien** (Bortz &amp; Döring):
 
 Intensive Fallstudien:
 
@@ -279,7 +243,7 @@ name: Contact Slide
 
 #### Anregungen zur gezielten Themensuche
 
-**Kreative Strategien** (Bortz & Döring):
+**Kreative Strategien** (Bortz &amp; Döring):
 
 Introspektion:
 
@@ -289,7 +253,7 @@ Introspektion:
 
 * kritische Betrachtung von Ungereimtheiten und Widersprüchlichem
 
-* Identifikation "sensibler Bereiche" $\rightarrow$ Verallgemeinerung auf andere per Analogieschluss
+* Identifikation "sensibler Bereiche" `\(\rightarrow\)` Verallgemeinerung auf andere per Analogieschluss
 
 ---
 class: top, left
@@ -299,7 +263,7 @@ name: Contact Slide
 
 #### Anregungen zur gezielten Themensuche
 
-**Kreative Strategien** (Bortz & Döring):
+**Kreative Strategien** (Bortz &amp; Döring):
 
 Funktionale Analogien:
 
@@ -309,7 +273,7 @@ Funktionale Analogien:
 
 * interdisziplinäre Forschungsansätze 
 
-* z.B. Inokkulationstheorie - Beeinflussbarkeit von Personen z.B. durch Vorwarnungen (persuasive Kommunikation) $\rightarrow$ Übertragung von Forschung über Impfwirkung (Medizin)
+* z.B. Inokkulationstheorie - Beeinflussbarkeit von Personen z.B. durch Vorwarnungen (persuasive Kommunikation) `\(\rightarrow\)` Übertragung von Forschung über Impfwirkung (Medizin)
 
 * z.B. gegenseitige Inspiration von Neurowissenschaften und künstlicher Intelligenz
 
@@ -321,7 +285,7 @@ name: Contact Slide
 
 #### Anregungen zur gezielten Themensuche
 
-**Kreative Strategien** (Bortz & Döring):
+**Kreative Strategien** (Bortz &amp; Döring):
 
 Paradoxe Phänomene:
 
@@ -341,7 +305,7 @@ name: Contact Slide
 
 #### Anregungen zur gezielten Themensuche
 
-**Kreative Strategien** (Bortz & Döring):
+**Kreative Strategien** (Bortz &amp; Döring):
 
 Veränderungen von Alltagsgewohnheiten:
 
@@ -361,7 +325,7 @@ name: Contact Slide
 
 #### Anregungen zur gezielten Themensuche
 
-**Kreative Strategien** (Bortz & Döring):
+**Kreative Strategien** (Bortz &amp; Döring):
 
 Gesellschaftliche Themen:
 
@@ -387,7 +351,7 @@ name: Contact Slide
 
 #### Anregungen zur gezielten Themensuche
 
-**Kreative Strategien** (Bortz & Döring):
+**Kreative Strategien** (Bortz &amp; Döring):
 
 Widersprüchliche Theorien:
 
@@ -436,9 +400,7 @@ name: Contact Slide
 **Beispiel Mindmap:**
 
 .center[
-```{r eval = TRUE, echo = F, out.width = "650px"}
-knitr::include_graphics("bilder/mindmap.png")
-```
+&lt;img src="bilder/mindmap.png" width="650px" /&gt;
 ]
 
 ---
@@ -519,7 +481,7 @@ name: Contact Slide
 
 **Wann sind vorläufige Untersuchungsideen unbrauchbar:**
 
-* Untersuchungsideen mit religiösen, metaphysischen oder philosophischen Inhalten (zumindest ohne angemessenen qualitativen Forschungsplan $\rightarrow$ siehe kommende Einheit zu qualitativen Forschungsmethoden)
+* Untersuchungsideen mit religiösen, metaphysischen oder philosophischen Inhalten (zumindest ohne angemessenen qualitativen Forschungsplan `\(\rightarrow\)` siehe kommende Einheit zu qualitativen Forschungsmethoden)
 
 * Themen, die sich mit unklaren Begriffen befassen (z. B. Seele, Gemüt, Charakterstärke)
 
@@ -585,7 +547,7 @@ name: Contact Slide
 
 * Humanwissenschaftliche Forschung benötigt Daten, deren Sammlung teils schwer mit  Menschenwürde vereinbar ist. 
 
-* Wenn nicht vermeidbar $\rightarrow$  muss anderen Personen (z.B. Patieten) zugute kommen
+* Wenn nicht vermeidbar `\(\rightarrow\)`  muss anderen Personen (z.B. Patieten) zugute kommen
 
 * Prospektive Einschätzung auch für Profis schwer 
 
@@ -629,12 +591,12 @@ name: Contact Slide
 
 * Untersuchung so anlegen, dass die freiwillige Teilnahme nicht zu einem Problem wird
 
-* Untersuchungsteilnehmer $\neq$ austauschbare Versuchspersonen sondern Individuen
+* Untersuchungsteilnehmer `\(\neq\)` austauschbare Versuchspersonen sondern Individuen
 
 * Thema Honorierung (zweischneidig)
   * finanziell schlechter gestellte Personen könnten auf Entlohnung angewiesen sein 
   * "erkaufen" der Freiwilligkeit
-  * Darstellung bezahlter Teilnehmer als "gute Versuchsperson" $\rightarrow$ Verfälschung
+  * Darstellung bezahlter Teilnehmer als "gute Versuchsperson" `\(\rightarrow\)` Verfälschung
   * gerechtfertigt bei sehr aufwenigen Untersuchungen (sonst nur schwer Teilnehmer zu finden)  
 ---
 class: top, left
@@ -706,3 +668,141 @@ class: top, left
 ]
 
 [**Link zur Wissensüberprüfung**](https://docs.google.com/forms/d/e/1FAIpQLSex_ev9NF6pZaaQzLAPOSo94b7tkKt_tPv6_sQ0_HGmFetPyw/viewform?usp=sf_link)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
