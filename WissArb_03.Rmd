@@ -1,0 +1,558 @@
+---
+title: "Einheit"
+subtitle: "⚔<br/>with xaringan"
+author: "Dr. Stephan Goerigk"
+institute: "RStudio, PBC"
+date: "2016/12/12 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "hygge"]
+    lib_dir: libs
+    nature:
+      slideNumberFormat: "%current%"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+    seal: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+setwd("/Users/stephangoerigk/Desktop/Universität/CFH/Lehre/Bachelor/Empirisch-wissenschaftliches Arbeiten/VO_Wissenschaftliches Arbeiten und Forschungsmethoden/WAF_Folien/")
+
+library(tidyverse)
+library(kableExtra)
+library(ggplot2)
+library(plotly)
+library(htmlwidgets)
+library(MASS)
+library(ggpubr)
+library(xaringanthemer)
+library(xaringanExtra)
+
+style_duo_accent(
+  primary_color = "#621C37",
+  secondary_color = "#EE0071",
+  background_image = "blank.png"
+)
+
+xaringanExtra::use_xaringan_extra(c("tile_view"))
+
+# use_scribble(
+#   pen_color = "#EE0071",
+#   pen_size = 4
+#   )
+
+knitr::opts_chunk$set(
+  fig.retina = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+name: Title slide
+class: middle, left
+<br><br><br><br><br><br><br>
+# Wissenschaftliches Arbeiten und Forschungsmethoden
+
+### Einheit 3: Operationalisierung: Zählen, Testen, Befragen, Beobachten
+##### 27.10.2022 | Dr. phil. Stephan Goerigk
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+.center[
+```{r eval = TRUE, echo = F, out.width = "550px"}
+knitr::include_graphics("bilder/selbstwert.png")
+```
+]
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+**Multidimensionale Selbstwertskala (MSWS)**
+
+* Selbstbeschreibungsfragebogen
+
+* Erfassung der Selbstwertschätzung von Erwachsenen
+
+* Mehr-Facettenmodell: es werden verschiedene Bereiche der Selbstwertschätzung unterschieden
+
+* 32 Items, 6 Subskalen, 1 Gesamtwert, Durchführungsdauer ca. 15 min, Auswertungsdauer ca. 10 min
+
+.center[
+```{r eval = TRUE, echo = F, out.width = "950px"}
+knitr::include_graphics("bilder/msws_dimensionen.png")
+```
+]
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+```{r echo=F}
+
+df = data.frame(Abkürzung = c("ESWS",
+                              "SWKO",
+                              "SWKR",
+                              "LSWS",
+                              "SWPA",
+                              "SWSP",
+                              "ASW",
+                              "KSW",
+                              "GSW"),
+                Bezeichnung = c("Emotionale Selbstwertschätzung",
+                                "Soziale Selbstwertschätzung - Sicherheit im Kontakt",
+                                "Soziale Selbstwertschätzung - Umgang mit Kritik",
+                                "Leistungsbezogene Selbstwertschätzung",
+                                "Selbstwertschätzung Physische Attraktivität",
+                                "Selbstwertschätzung Sportlichkeit",
+                                "Allgemeine Selbstwertschätzung",
+                                "Körperbezogene Selbstwertschätzung",
+                                "Gesamtselbstwert"),
+                Zusammensetzung = c("1-, 2-, 3, 16-, 17-, 18-, 19",
+                                    "4-, 5-, 20-, 21-, 22-",
+                                    "6-, 7-, 23-, 24-, 25-",
+                                    "8, 9-, 26, 27, 28-",
+                                    "10-, 11, 29-, 30-, 31",
+                                    "12-, 13, 14-, 15, 32-",
+                                    "ESWS, SWKO, SWKR, LSWS",
+                                    "SWPA, SWSP",
+                                    "ASW, KSW"),
+                Beispielitems = c("Zweifeln Sie an sich selbst?",
+                                  "Wie häufig fühlen Sie sich gehemmt?",
+                                  "Wie sehr machen Sie sich Gedanken darüber, ob andere Leute Sie als Versager sehen?",
+                                  "Zweifeln Sie an Ihren fachlichen Fähigkeiten?",
+                                  "Wie sicher sind Sie, dass Sie für gutaussehend gehalten werden?",
+                                  "Wie häufig haben Sie schon das Gefühl gehabt, dass anderen Ihnen sportlich überlegen sind?",
+                                  "",
+                                  "",
+                                  "")
+                )
+df %>%
+  kbl() %>%
+    kable_styling(font_size = 18) %>%
+  kable_classic(full_width = T, position = "left")
+```
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+ESWS - Emotionale Selbstwertschätzung
+
+Personen mit hohen Werten auf dieser Subskala:
+* haben eine positive Einstellung zu sich selbst.
+* hohe Selbstakzeptanz und Selbstzufriedenheit 
+* positive Einstellungen sowie Gefühle gegenüber der eigenen Person
+
+Personen mit niedrigen Werten auf dieser Subskala:  
+* sind unzufrieden mit sich
+* erleben Selbstzweifel
+* haben eine negative Einstellung zu sich selbst 
+* leiden unter negativen selbstbezogenen Gefühlen.
+ 
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+SWKO - Soziale Selbstwertschätzung — Sicherheit im Kontakt
+
+Personen mit hohen Werten auf dieser Subskala:
+* empfinden sich als sicher im sozialen Kontakt
+* haben geringe Hemmungen beim Umgang mit anderen
+* fühlen sich im Kontakt mit anderen Menschen wohl
+
+Personen mit niedrigen Werten auf dieser Subskala:  
+* sind unsicher im Kontakt mit anderen Menschen
+* wenig überzeugt yon ihren sozialen Fähigkeiten 
+* fühlen sich in Gegenwart anderer schüchtern und gehemmt
+ 
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+SWKR - Soziale Selbstwertschätzung — Umgang mit Kritik
+
+Personen mit hohen Werten auf dieser Subskala:
+* machen sich wenig Sorgen, ob andere eine negative Meinung von ihnen haben könnten
+* sind überzeugt davon, dass andere sie wertschätzen, ihre Leistungen anerkennen und sie nicht als Versager sehen
+
+Personen mit niedrigen Werten auf dieser Subskala:  
+* sind unsicher darüber, welche Meinungen andere von ihnen haben.
+* machen sich viele Gedanken darüber, dass andere schlecht über sii denken kömnten
+* sind empfindlich gegentüber Kritik und glauben nicht, dass andere sie wertschätzen
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+LSWS - Leistungsbezogene Selbstwertschätzung
+
+Personen mit hohen Werten auf dieser Subskala:
+* sind überzeugt davon, fachlich kompetent zu sein
+* in beruflichen oder anderen Aufgaben gute Arbeit zu leisten 
+* auch anspruchsvollen Aufgaben gewachsen zu sein
+
+Personen mit niedrigen Werten auf dieser Subskala:  
+* zweifeln an ihren fachlichen und beruflichen Fahigkeiten
+* sehen sich im Arbeitsalltag überfordert
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+SWPA - Selbstwertschätzung Physische Attraktivitat
+
+Personen mit hohen Werten auf dieser Subskala:
+* sind überzeugt von der eigenen (physischen) Attraktivität
+* stehen zu ihrem Aussehen 
+* sind zufrieden mit ihrem Körper
+
+Personen mit niedrigen Werten auf dieser Subskala:  
+* zweifeln an ihrer Attraktivität
+* wünschen sich ein besseres Aussehen
+* schämen sich wegen ihres Körpers
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+SWSP - Selbstwertschätzung Sportlichkeit
+
+Personen mit hohen Werten auf dieser Subskala:
+* sind zufrieden mit ihren sportlichen Fähigkeiten
+* fühlen sich bei sportlichen Aktivitäten sicher 
+* haben eine positive Einstellung zu ihrer Koordinationsfähigkeit
+
+Personen mit niedrigen Werten auf dieser Subskala:  
+* sind unzufrieden mit ihren sportlichen Fähigkeiten
+* sind unsicher und nervös bei sportlichen Aktivitäten
+* haben wenig Vertrauen in ihre Koordinationsfähigkeit
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+Umpolen von Items:
+
+* Manchmal werden Items entgegengesetzt des Konstrukts formuliert
+
+* Führt zu treffeneren Aussagen und aufmerksamerer Ausfüllung (automatisches Maximalkreuzen funktioniert nicht)
+
+* Müssen vor der Aggregierung zu einem Summenwert/Durchschnittswert "umgedreht" werden
+
+Beispiel Extraversion:
+
+*Aussage: Ich bleibe am Wochenende lieber Zuhause*
+
+$\rightarrow$ Misst Ausprägung von Extraversion (nur umgekert)
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+Umpolen beim MSWS:
+
+* Folgende Items müsste umgepolt werden
+
+1, 2, 4, 5, 6, 7, 9, 10, 12, 14, 16, 17, 18, 20, 21, 22, 23, 24, 25, 28, 29, 30, 32
+
+Umpolen:
+
+* 1 $\rightarrow$ 7
+* 2 $\rightarrow$ 6
+* 3 $\rightarrow$ 5
+* 4 = 4
+* 5 $\rightarrow$ 3
+* 6 $\rightarrow$ 2
+* 7 $\rightarrow$ 1
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+Summenbildung:
+
+* Items geben uns genaue Informationen/Beobachtungen
+
+* Wird wollen aber das dahinterliegende Konstrukt (Selbstwert)
+
+* Zu der selben Kategorie gehörige Items zusammenrechnen zu Subskalen
+
+* Subskalen zusammenrechnen zu Gesamtwerten
+
+**Beispiel:**
+
+Emotionale Selbstwertschätzung (ESWS) = Item 1 + Item 2 + Item 3 + Item 16 + Item 17 + Item 18 + Item 19
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+**Normierung und Standardwerte (t-Werte und Prozentränge):**
+
+* Der einzelne Summenwert (z.B. einer Subskala) steht für starke oder weniger starke Ausprägung
+
+* hohe Werte = hohe Ausprägung
+
+**ABER:**
+
+* Der Wert alleine gibt uns keine Informationen über die Einordnung der Ausprägung
+
+* Müssen Wert im Vergleich zu Werten von anderen Personen (Normen) interpretieren 
+
+* Dafür nutzen wir möglichst große, vergleichbare Normstichproben (Tabellen hinten im Manual eines Tests)
+
+**Beispiel MSWS: **
+
+Empirischer Befund: Männer und Frauen unterscheiden sich signifikant in der Selbstwerteinschätzung
+Darum haben die Autor:innen des Fragebogens 2 getrennte Normtabellen erstellt (eine für Männer und eine für Frauen)
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+**Normierung und Standardwerte (T-Werte und Prozentränge):**
+
+* t-Werte und Prozentränge erlauben eine Verortung des Messwertes innerhalb der Verteilung der Werte der Normstichprobe
+
+* T-Wert nicht verwechseln mit t-Wert (vom t-Test)
+
+* z.B. Wo liegt der ESWS Wert 32 im Vergleich zu anderen Personen gleichen Geschlechts (Berücksichtigung von Mittelwert und Standardabweichung der Verteilung)
+
+* erlaubt eine Einteilung in "duchschnittlich", bzw. "unter-/überdurchschnittlich" oder "extrem" $\rightarrow$ Wichtig für eingeordnete Rückmeldung an die Testperson
+
+* Prozentrang: XX% der Personen in der Stichprobe haben diesen oder einen kleineren Wert
+
+* T-Wert: normiert auf 100 mit Standardabweichung von 10 (standardisiert für alle Fragebogenwerte unterschiedlicher Skalierung)
+
+z.B. Eine Person mit Körpergröße 175 (angenommen dies ist der Durchschnitt der Norm) und Wert Körpergewicht 70 kg (angenommen dies ist der Durchschnitt der Norm) haben beide einen T-Wert von 100 (obwohl Variablen in unterschiedlichen Einheiten gemessen).
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+**Interpretation (T-Werte und Prozentränge):**
+
+.pull-left[
+Durchschnittliche Ausprägung:
+* Prozentränge zwischen 16 und 84 
+* entspricht T-Werten zwischen 40 und 60
+
+Unterdurchschnittliche Ausprägung:
+* Prozentränge zwischen 2 und 16 
+* T-Werte zwischen 30 und 40
+]
+.pull-right[
+Überdurchschnittliche Ausprägung:
+* Prozentränge zwischen 84 und 98 
+* T-Werte zwischen 60 und 70
+
+Extreme Ausprägung
+* Prozentränge unter 2 oder über 98 
+* T-Werte kleiner 30 und größer 70
+
+]
+
+<br>
+$\rightarrow$ siehe markierte Durchschnittsbereiche im **Profilbogen**
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+**Profilbogen (Beispiel):**
+
+.pull-left[
+.center[
+```{r eval = TRUE, echo = F, out.width = "500px"}
+knitr::include_graphics("bilder/msws_profilbogen.png")
+```
+]
+]
+.pull-right[
+.center[
+```{r eval = TRUE, echo = F, out.width = "500px"}
+knitr::include_graphics("bilder/msws_profilbogen2.png")
+```
+]
+]
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+**Kritische Werte:**
+
+* Kritische Werte erlauben den **verlässlichen** Vergleich eines Testergebnisses mit einem anderen Ergebnis
+
+* Dabei wird auf Basis der Werteverteilung ein Unterschied definiert, der mit einer **Mindestwahrscheinlichkeit** (i.d.R. 5% oder 10%) gegebn sein muss, damit man Werte als "nicht gleich" ansieht
+
+* Dahinter steckt die Frage, ab wann man **unter Berücksichtigung natürlicher Schwankungen und Messfehler** sagen kann, dass 2 Werte unterschiedliche sind (sind 1 und 1,00000001 unterschiedlich? sind 1 und 1000 unterschiedlich, sind 1 und 3 unterschiedlich -- man braucht ein Entscheidungskriterium!)
+
+* **Kritische Werte - Mögliche Vergleiche:**
+  * Vergleich von 2 Personen auf dem selben Skalenwert (z.B. Max vs. Maria)
+  * Vergleich von 2 Messzeitpunkten derselben Person auf dem selben Skalenwert (z.B. Max gestern vs. Max heute)
+  * Vergleich von 2 Skalenwerten der selben Person (z.B. Max Wert auf dem ESWS vs. Max Wert auf dem SWKO)
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+**Kritische Werte (hier 10% Irrtumswahrscheinlichkeit):**
+
+.center[
+```{r eval = TRUE, echo = F, out.width = "500px"}
+knitr::include_graphics("bilder/msws_kritischewerte.png")
+```
+]
+
+* Werte beziehen sich auf T-Werte aus Normtabellen
+* Diagonale 1. Ziffer: Kritische Differenz für Unterschied zwischen 2 Personen auf dieser Skala
+* Diagonale 2. Ziffer: Kritische Differenz für Unterschied zwischen 2 Zeitpunkten auf dieser Skala
+* Nicht-Diagonale Ziffern: Kritische Differenz für Unterschiede zwischen 2 Skalen (selbe Person)
+
+**Beispiel: **
+Person 1 hat ESWS T-Wert von 40 und Person 2 hat ESWS T-Wert von 22. Die Differenz ist 40-22=18. 18 ist größer als die kritische Differenz von 9.3 T-Wert Punkten. Wir können mit 90% Sicherheit sagen, dass Person 1 und 2 sich auf dem ESWS unterscheiden.
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+**Skalenbildung:**
+
+Frage: 
+
+Wie haben die Autor:innen entschieden, dass gerade diese Fragen sich zur Messung der 6 Subskalen eigenen? Es könnte ja auch sein, dass Item 1 eigentlich Soziale Selbstwertschätzung misst...
+
+Antwort: Statistisches Verfahren der Faktorenanalyse
+
+* Prüft **Ladungen** der Einzelitems auf einen **latenten Faktor**
+* Ladungen funktionieren wie Korrelationen (Werte nahe 1 bedeuten das Item hängt stark mit einem Faktor zusammen)
+* So können einzelne Fragen in unterschiedliche Subskalen **sortiert** werden
+* Anzahl und Zusammensetzung der Subskalen nennt man **Faktorstruktur** eines Fragebogens
+* Fragebogen ohne Subskalen nennt man **eindimensional** mit mehrere Subskalen **mehrdimensional**
+* Inhaltliche Bezeichnung der Subskalen/Faktoren nehmen die Autoren anhand der Items vor, die auf sie laden (z.B. Frage zu Aussehen und Frage zu Attraktivität laden auf selben Faktor --- Also nennen wir ihn "Selbstwertschätzung Physische Attraktivität")
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+**Skalenbildung (Ladung der Items auf Subskalen/Faktoren):**
+
+.center[
+```{r eval = TRUE, echo = F, out.width = "450px"}
+knitr::include_graphics("bilder/msws_fa.png")
+```
+]
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
+Vorgehen:
+
+1. Items beantworten
+
+2. Items umpolen
+
+3. Summen bilden (Subskalen und Gesamtwerte)
+
+4. t-Werte und Prozentränge aus Normtabellen ablesen (Vorsicht Männer vs. Frauen)
+
+5. t-Werte und Prozentränge in Profilbogen eintragen (inkl. Konfidenzintervalle)
+
+6. Interpretation (durchschnittlich, unterdurchschnittlich, überdurchschnittlich, extrem)
+
+7. Inhaltliche Interpretation und Vergleiche mittels kritischer Werte
+
+
