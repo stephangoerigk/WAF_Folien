@@ -278,6 +278,30 @@ name: Contact Slide
 
 #### Beispiel Selbstwert (MSWS)
 
+**Vorgehen:**
+
+1. Items beantworten
+
+2. Items umpolen
+
+3. Summen bilden (Subskalen und Gesamtwerte)
+
+4. t-Werte und Prozentränge aus Normtabellen ablesen (Vorsicht Männer vs. Frauen)
+
+5. t-Werte und Prozentränge in Profilbogen eintragen (inkl. Konfidenzintervalle)
+
+6. Interpretation (durchschnittlich, unterdurchschnittlich, überdurchschnittlich, extrem)
+
+7. Inhaltliche Interpretation und Vergleiche mittels kritischer Werte
+
+---
+class: top, left
+name: Contact Slide
+
+### Operationalisierung - Tests und Fragebögen
+
+#### Beispiel Selbstwert (MSWS)
+
 Umpolen von Items:
 
 * Manchmal werden Items entgegengesetzt des Konstrukts formuliert
@@ -530,29 +554,5 @@ name: Contact Slide
 knitr::include_graphics("bilder/msws_fa.png")
 ```
 ]
-
----
-class: top, left
-name: Contact Slide
-
-### Operationalisierung - Tests und Fragebögen
-
-#### Beispiel Selbstwert (MSWS)
-
-Vorgehen:
-
-1. Items beantworten
-
-2. Items umpolen
-
-3. Summen bilden (Subskalen und Gesamtwerte)
-
-4. t-Werte und Prozentränge aus Normtabellen ablesen (Vorsicht Männer vs. Frauen)
-
-5. t-Werte und Prozentränge in Profilbogen eintragen (inkl. Konfidenzintervalle)
-
-6. Interpretation (durchschnittlich, unterdurchschnittlich, überdurchschnittlich, extrem)
-
-7. Inhaltliche Interpretation und Vergleiche mittels kritischer Werte
 
 
