@@ -1,0 +1,418 @@
+---
+title: "Einheit"
+subtitle: "⚔<br/>with xaringan"
+author: "Dr. Stephan Goerigk"
+institute: "RStudio, PBC"
+date: "2016/12/12 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "hygge"]
+    lib_dir: libs
+    nature:
+      slideNumberFormat: "%current%"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+    seal: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+setwd("/Users/stephangoerigk/Desktop/Universität/CFH/Lehre/Bachelor/Empirisch-wissenschaftliches Arbeiten/VO_Wissenschaftliches Arbeiten und Forschungsmethoden/WAF_Folien/")
+
+library(tidyverse)
+library(kableExtra)
+library(ggplot2)
+library(plotly)
+library(htmlwidgets)
+library(MASS)
+library(ggpubr)
+library(xaringanthemer)
+library(xaringanExtra)
+
+style_duo_accent(
+  primary_color = "#621C37",
+  secondary_color = "#EE0071",
+  background_image = "blank.png"
+)
+
+xaringanExtra::use_xaringan_extra(c("tile_view"))
+
+# use_scribble(
+#   pen_color = "#EE0071",
+#   pen_size = 4
+#   )
+
+knitr::opts_chunk$set(
+  fig.retina = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+name: Title slide
+class: middle, left
+<br><br><br><br><br><br><br>
+# Wissenschaftliches Arbeiten und Forschungsmethoden
+
+### Einheit 4: Gütekriterien
+##### 03.11.2022 | Dr. phil. Stephan Goerigk
+
+---
+class: top, left
+### Gütekriterien
+
+####  Unterteilung von Erhebungsmethoden
+
+* Verfahren des Beobachtens, Zählens und Messens
+
+* Verfahren des Selbstberichts 
+
+* Psychologische Tests 
+
+* Biopsychologische bzw. neurowissenschaftliche Messungen 
+
+$\rightarrow$ Verfahren sind nicht völlig distinkt, sondern weisen Überschneidungen auf
+
+---
+class: top, left
+### Gütekriterien
+
+####  Auswahl und Einsatz von Erhebungsmethoden
+
+##### Übergeordnete Perspektive
+
+* **Ziel:** wissenschaftliche Fragestellungen in der Psychologie in Breite und Tiefe beantworten
+
+* **Lösung:** Prinzipiell anstreben, Fragestellungen mit mehreren Datenerhebungsverfahren bzw. basierend auf unterschiedlichen Datenquellen zu untersuchen
+
+##### Perspektive der Einzelstudie
+
+* häufig nicht möglich oder sinnvoll (ökonomischen oder versuchsplanerische Gründe), innerhalb einer einzigen Studie verschiedene Methoden einzusetzen
+
+* konkrete einzelne Untersuchung $\rightarrow$ gezielte Auswahl weniger Methoden
+
+---
+class: top, left
+### Gütekriterien
+
+####  Qualitätskriterien von Erhebungsmethoden
+
+Zur Auswahl und Bewertung psychologischer Erhebungsmethoden müssen Kriterien berücksichtigt werden:
+
+.pull-left[
+**Hauptgütekriterien: **
+
+* Objektivität
+
+* Reliabilität
+
+* Validität
+]
+
+.pull-right[
+**Nebengütekriterien: **
+
+* Skalierung
+
+* Normierung
+
+* Ökonomie
+
+* Nützlichkeit
+
+* Zumutbarkeit
+
+* Unverfälschbarkeit 
+
+* Fairness
+]
+
+---
+class: top, left
+### Gütekriterien
+
+####  Qualitätskriterien von Erhebungsmethoden
+
+##### Objektivität
+
+**Definition:**
+Eine Erhebungsmethode ist objektiv, wenn sie das Merkmal unabhängig von Testleiter:in, Testauswerter:in und von Ergebnisinterpretation misst.
+
+3 Bereiche lassen sich unterscheiden:
+
+1. Durchführungsobjektivität (Testleiterunabhängigkeit) 
+
+2. Auswertungsobjektivität (Verrechnungssicherheit)
+
+3. Interpretationsobjektivität (Interpretationseindeutigkeit)
+
+---
+class: top, left
+### Gütekriterien
+
+####  Qualitätskriterien von Erhebungsmethoden
+
+##### Objektivität
+
+**Durchführungsobjektivität:**
+
+Definition: 
+
+Testergebnis soll nicht davon abhängen, welche Testleiter:in Test durchführt 
+
+$\rightarrow$ Erhebung sollte unter möglichst standardisierten Bedingungen stattfinden
+
+Standardisierung wird optimiert durch:
+
+* Instruktionen der Testleiter schriftlich festgehalten
+* soziale Interaktion zwischen Versuchsleiter und Testperson gering halten 
+* für möglichst ähnliche Untersuchungssituation sorgen
+
+---
+class: top, left
+### Gütekriterien
+
+####  Qualitätskriterien von Erhebungsmethoden
+
+##### Objektivität
+
+**Auswertungsobjektivität:**
+
+Definition: 
+
+Beim Vorliegen der Antworten/Beobachtungen einer Person soll jede Auswerter:in zum selben Ergebnis kommen
+
+Kann durch statistische Kennzahlen zur Beurteilerübereinstimmung erfasst werden: 
+* Cohens Kappa
+* Fleiss Kappa
+* Konkordanzkoeffizienten nach Kendall
+
+Auswertungsobjektivität wird optimiert durch:
+
+* Vermeiden freier Antwortformate
+* klare Auswertungsregeln
+
+---
+class: top, left
+### Gütekriterien
+
+####  Qualitätskriterien von Erhebungsmethoden
+
+##### Objektivität
+
+**Interpretationsobjektivität:**
+
+Definition: 
+
+Unterschiedliche Erheber:innen sollen beim Vorliegen der Ergebnisse zum selben Schluss kommen.
+
+Interpretationsobjektivität kann erhöht werden durch:
+
+* klare Regeln für die Interpretation
+* Vorhandensein von Normen/Normwerten
+* Verwendung von Prozenträngen
+
+---
+class: top, left
+### Gütekriterien
+
+####  Qualitätskriterien von Erhebungsmethoden
+
+##### Reliabilität
+
+**Definition:**
+
+* Eine Erhebungsmethode ist (vollständig) reliabel, wenn sie das Merkmal ohne Messfehler misst.
+
+* Reliabilität gibt Grad der Genauigkeit an, mit der eine Erhebungsmethode misst
+
+Es lassen sich 3-4 Arten der Reliabilität unterscheiden: 
+
+* **Retest-Reliabilität** $\rightarrow$ Erhebungsmethode kommt bei Wiederholung zum selben Ergebnis
+
+* **Paralleltest-Reliabilität** $\rightarrow$ Erhebungsmethode kommt unter vergleichbaren Bedingungen zum selben Ergebnis
+
+* **Innere Konsistenz** $\rightarrow$ Einzelteile der Erhebungsmethode kommen zu ähnlichen Ergebnissen wie andere Erhebungsmethode
+
+* (**Testhalbierungs- (Split Half-)Reliabilität**) $\rightarrow$ analog zur innreren Konsistenz (nur Trennung in 2 Teile)
+
+---
+class: top, left
+### Gütekriterien
+
+####  Qualitätskriterien von Erhebungsmethoden
+
+##### Validität
+
+**Definition:**
+
+Eine Erhebungsmethode ist valide, wenn sie das Merkmal, das sie messen soll, auch wirklich misst.
+
+3 Validitäten lassen sich unterscheiden:
+* **Inhaltsvalidität**
+  * Erhebungsmethode entspricht allen relevanten Bestandteilen des erhobenen Konstrukts (z.B. Depressionsfragebogen sollte alle relevanten Depressionssymptome und keine nicht für Depression relevanten Symptome enthalten)
+* **Konstruktvalidität**
+  * Erhebungsmethode erzeugt Daten, die von einer empirisch bewährten oder überzeugenden Theorie vorhergesagt werden (z.B. Testergebnis Diagnoseinstrument Autismus bildet erwartete Erblichkeit ab)
+* **Kriteriumsvalidität**
+  * Erhebungsmethode erzeugt Daten, die mit Kriterien des Merkmals korrelieren (z.B. Intelligenztest und Schulnoten)
+
+---
+class: top, left
+### Gütekriterien
+
+####  Reaktivität
+
+* Von Beginn an ist die Reaktivität der Erhebungsmethoden zu beachten.
+
+* Definition: Veränderung/Verzerrung der erhobener Daten aufgrund der Kenntnis der untersuchten Person darüber, dass sie Gegenstand einer Untersuchung ist
+
+$\rightarrow$ Datenerhebungen in Psychologie verändern oft bereits den Gegenstand
+
+**Beispiel: Hawthorne-Effekt**
+
+* klassische Studie in den Hawthorne-Werken der Western Electric Company (Roethlisberger und Dickson, 1939)
+
+* bloße wissenschaftliche Untersuchung der Arbeiter:innen führte zu Steigerung der Produktivität 
+
+* Produktivitätssteigerung war **unabhängig** von den durch die Forscher implementierten Veränderungen der Arbeitsbedingungen
+
+* **Bewertungserwartung** der untersuchten Personen aka. **Aufforderungscharakteristika** der Untersuchung
+
+---
+class: top, left
+### Gütekriterien
+
+####  Maßnahmen zur Reduktion von Reaktivität
+
+```{r echo = F}
+
+df = data.frame(Maßnahme = c("Versuchspersonen in Unkenntnis darüber lassen, dass sie untersucht werden",
+                             "Versuchspersonen Anonymität zusichern",
+                             "Coverstory über den Untersuchungszweck entwickeln",
+                             "Maße einsetzen, die von Versuchspersonen nicht kontrolliert oder beeinflusst werden können (nicht-reaktive Messverfahren)",
+                             "Indirekte/implizite Messverfahren einsetzen"),
+                Bewertung = c("Nur in Feld-, Archiv- oder Internetstudien praktikabel, nicht in Laborstudien; kann ethisch problematisch sein",
+                             "Besonders wichtig bei der Erhebung von persönlichen/sensiblen Daten; reduziert sozial-erwünschtes Antworten",
+                             "Wichtig in hypothesenprüfenden Studien, in denen die Versuchspersonen erforschtes Verhalten kontrollieren können; Täuschung ethisch zu reflektieren",
+                             "Angenommen für biopsychologische Maße, die kaum kontrollierbare physiologische Vorgänge erfassen (z.B. Messung von Hormonspiegeln oder  Verfahren zur Messung der Gehirnaktivität",
+                             "Versuchspersonen können aus gemessenen Verhaltensweisen (oft Reaktionszeiten) nur schwer auf das untersuchte Konstrukt schließen"))
+
+df %>%
+  kbl() %>%
+  kable_styling(font_size = 18) %>%
+  kable_classic(full_width = T)
+```
+
+
+---
+class: top, left
+### Gütekriterien
+
+#### Beispiele für Studien in der Psychologie:
+
+**Das Marshmellow Experiment (Mischel, 1989)** ([**Link**](https://www.youtube.com/watch?v=QX_oy9614HQ))
+
+* Experiment zum Belohnungsaufschub und zur Impulskontrolle
+
+* Fähigkeit kurzfristig auf etwas Verlockendes für die Erreichung langfristiger Ziele zu verzichten 
+
+**Prüfen Sie, inwieweit Sie die Hauptgütekriterien erfüllt sehen. Durch welche Maßnahmen ließe sich die Güte noch erhöhen?**
+
+---
+class: top, left
+### Gütekriterien
+
+#### (Verhaltens-)beobachtung
+
+##### Beobachtungsfehler und -verzerrungen (Beispiele)
+
+```{r echo = F}
+
+df = data.frame(Beobachtungsfehler = c("Beobachterdrift",
+                                       "Erinnerungseffekte",
+                                       "Haloeffekt",
+                                       "Logischer Fehler",
+                                       "Primacy Effekt",
+                                       "Recency Effekt",
+                                       "Mildeeffekt",
+                                       "Strengeeffekt",
+                                       "Zentrale Tendenz",
+                                       "Tendenz zu Extremurteilen",
+                                       "Kontrasteffekt"),
+                Beschreibung = c("Im Verlauf zunehmend weniger/mehr Auftreten registrieren sich am Verhalten nichts verändert hat (oft wegen Ermüdung, mangelnder Übung)",
+                                 "Verzerrungen wenn nicht unmittelbar protokolliert wird",
+                                 "Eine Eigenschaft einer Person wird durch eine andere Eigenschaft „überstrahlt“",
+                                 "Von einem Hinweisreiz wird auf eine Eigenschaft geschlossen (obwohl kein Zusammenhang besteht)",
+                                 "Überbetonung der esten Information",
+                                 "Überbetonung der letzten Information",
+                                 "Verzerrung zum Positiven",
+                                 "Verzerrung zum Negativen",
+                                 "Bevorzugung der Skalenmitte (häufig wegen Unsicherheit beim Beurteilen)",
+                                 "Bevorzugung der Skalenpole",
+                                 "Einschätzung einer Person hängt von jener der zuvor eingeschätzten Person ab"))
+
+df %>%
+  kbl() %>%
+  kable_styling(font_size = 17) %>%
+  kable_classic(full_width = T)
+```
+
+---
+class: top, left
+### Gütekriterien
+
+#### (Verhaltens-)beobachtung
+
+##### Verringern von Beobachtungsfehlern und -verzerrungen 
+
+```{r echo = F}
+
+df = data.frame(Beobachtungsfehler = c("Grenzwerte",
+                                       "Verhaltensnahe Beobachtung",
+                                       "konkreter/eindeutiger Beobachtungsplan",
+                                       "Beobachterschulung",
+                                       "Beobachterrotation"
+                               ),
+                Beschreibung = c("Limit an zu beobachtenden Verhaltensmerkmalen und Beobachtungsdauer für BeobachterInnen",
+                                 "Beobachtbare Einheiten, Vermeidung von Interpretation",
+                                 "Missverständniss vermeiden, klare Kategorien",
+                                 "Vertrautmachen mit Protokollbogen, Definieren der Verhaltensmerkmale, Probedurchgänge",
+                                 "verschiedene Beobachter:innen eingesetzen; Versuchsperson in verschiedenen Situationen durch unterschiedliche Beobachter:innen beobachten"
+                                ))
+
+df %>%
+  kbl() %>%
+  kable_styling(font_size = 18) %>%
+  kable_classic(full_width = T)
+```
+
+* auch bei Berücksichtigung sind Beobachtungsfehler nicht auszuschließen.
+* bei jeder Verhaltensbeobachtung Beobachterübereinstimmung empirisch prüfen! 
+
+$\rightarrow$ auch Beobachterübereinstimmung garantiert noch nicht dass keine Beobachtungsfehler aufgetreten sind
+
+---
+class: top, left
+### Take-Aways
+.content-box-gray[
+
+* **Hauptgütekriterien** für psychologische Erhebungen sind Objektivität, Reliabilität und Validität
+
+* **Objektivität:** Erhebung unabhängig von Testleiter:in, Testauswerter:in und Ergebnisinterpretation
+
+* **Reliabilität:** Fehlerfreie und zuverlässige Erhebung des Merkmals
+
+* **Validität:** Methode erhebt wirklich das interessierende Merkmal und nicht etwas anderes
+
+* Wissenschaftliche Beobachtung erfolgt nach a priori festgelegtem **Beobachtungsplan**
+
+* Häufig nutzt man zur Bewertung von Beobachtung die Konstruktion von **Ratingskalen**
+
+* **Beobachtungsfehler und -verzerrungen** sollten möglichst bewusst vermieden werden
+
+* Zur Eindeutigkeit von Beobachtungen können **Maße der Beobachterübereinstimmung** berechnet werden
+]
+
