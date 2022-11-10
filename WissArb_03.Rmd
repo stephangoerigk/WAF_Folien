@@ -557,7 +557,6 @@ knitr::include_graphics("bilder/msws_fa.png")
 ```
 ]
 
-
 ---
 class: top, left
 ### Erhebungsmethoden der psychologischen Forschung
@@ -576,10 +575,11 @@ $\rightarrow$  Interpretation vor dem Hintergrund der (vermutlichen) Mitteilungs
 
 .pull-left[
 .center[
-```{r eval = TRUE, echo = F, out.width = "450px"}
+```{r eval = TRUE, echo = F, out.width = "400px"}
 knitr::include_graphics("bilder/thun.png")
 ```
-4-Seiten-Modell, F. Schulz von Thun
+
+F. Schulz v. Thun
 ]
 ]
 .pull-right[
@@ -661,28 +661,6 @@ class: top, left
 
 ##### Ratings - Aspekte bei der Konstruktion von Ratingskalen
 
-**Formulierung als Frage oder Aussage**
-
-  * Aussagen in der "Ich-Form" und Fragen in der "Du/Sie-Form" formuliert
-  * Entscheidung basierend auf gewünschter Art der Ansprache
-
-**Verwendung unipolarer oder bipolarer Endpunkte**
-
-  * Vorteil bipolare Skalen: definieren Begriffe an den Endpunkten der Skala einander wechselseitig 
-  * Wann unipolare Skalen? 
-  
-    $\rightarrow$ wenn der Gegensatz eines Begriffs unklar ist (z. B. bei "schüchtern")
-    
-    $\rightarrow$ zur Beurteilung von Merkmalen mit einem natürlichen Nullpunkt
-    
----
-class: top, left
-### Erhebungsmethoden der psychologischen Forschung
-
-#### Selbstberichtsverfahren: Befragung und Rating
-
-##### Ratings - Aspekte bei der Konstruktion von Ratingskalen
-
 **Abstufung der Skala**
 
 1. Geringe vs. hohe Anzahl der Stufen
@@ -696,28 +674,6 @@ class: top, left
   * Gerade Anzahl: Urteil in Richtung des einen oder anderen Pols der Skala wird erzwungen
   * Ungerade Anzahl: neutrale Urteilsmöglichkeit verfügbar
   * Cave neutrales Urteil: nicht eindeutig interpretierbar (Ambivalenz-Indifferenz-Problem)
-
----
-class: top, left
-### Erhebungsmethoden der psychologischen Forschung
-
-#### Selbstberichtsverfahren: Befragung und Rating
-
-##### Ratings - Aspekte bei der Konstruktion von Ratingskalen
-
-**Bezeichnung der Abstufungen einer Skala**
-
-* Zahlen (numerische Marker)
-  * Vorteil: Stufen sind eindeutig
-  * Vorteil: Abstände zwischen den Stufen der Ratingskala sind gleich 
-
-* Wörter (verbale Marker)
-  * Voteil: leichter verständlich (forschungssnaive Personen)
-  * Nachteil: gleicher Abstand zwischen den Stufen unklar
-
-* sprachfreie Zeichen (grafische bzw. ikonische Marken, z.B. Smileys oder Frownies)
-  * Vorteil: leichter verständlich (forschungssnaive Personen, Kinder)
-  * Nachteil: gleicher Abstand zwischen den Stufen unklar
 
 ---
 class: top, left
@@ -743,6 +699,140 @@ class: top, left
   
   * Gegenmaßnahme: Mischung von Fragen bzw. Umpolung der Fragerichtung
 
+---
+class: top, left
+### Erhebungsmethoden der psychologischen Forschung
+
+#### (Verhaltens-)beobachtung
+
+##### Wissenschaftliche Beobachtung nach a priori festgelegtem Beobachtungsplan:
+
+1. Was soll beobachtet werden?  (Kategorien für das/die interessierende/n Ereignis/se oder Merkmal/e)
+
+2. Wer beobachtet?  (teilnehmend vs. nicht-teilnehmend)
+
+3. Wo wird beobachtet?  (Feld vs. Labor)
+
+4. Wie wird beobachtet? (Grad der Strukturierung)
+
+5. Wann wird beobachtet?  (Zeitpunkte, Zeiträume, Situationen, gleichzeitige vs. zeitversetzte Registrierung)
+
+6. Auf welche Weise wird das Beobachtete registriert, protokolliert, interpretiert?
+
+---
+class: top, left
+### Erhebungsmethoden der psychologischen Forschung
+
+#### (Verhaltens-)beobachtung
+
+##### Annahmen der (Verhaltens-)beobachtung:
+
+**Was wird beobachtet? -  Definition von Beobachtungseinheiten:**
+
+* Abgrenzung des Beobachtungsobjekts: z.B. einzelne Personen vs. Famile vs. Paare...
+
+* Abgrenzung der Variablen / Verhaltensmerkmale: umfassendes Bild vs. einzelnes Merkmal
+
+* Abgrenzung der Dauer der Beobachtung: kurz/einmalig vs. lang/wiederholt
+
+* Definition von Anfang, Ende und Inhalt einer Beobachtungseinheit:
+  – Wann beginnt / endet ein Verhalten, das einen Hinweis auf das Verhaltensmerkmal gibt?
+  – Welches Verhalten gibt Hinweis auf Verhaltensmerkmal?
+
+---
+class: top, left
+### Erhebungsmethoden der psychologischen Forschung
+
+#### (Verhaltens-)beobachtung
+
+##### Annahmen der (Verhaltens-)beobachtung:
+
+**Was wird beobachtet? -  Kriterien für gute Beobachtungseinheiten:**
+
+* Jede Beobachter:in kann Beobachtungseinheit **zuverlässig identifizieren**.
+
+* Das beschriebene Verhalten **kommt** in der Beobachtungssituation **vor**.
+
+* Zu beobachtendes Merkmal wird von Beobachtungseinheiten in **allen Facetten** erfasst.
+
+* Liste der Verhaltensweisen kann von Beobachter:innen während der Beobachtung **überblickt** werden.
+
+* **Grenzwerte** für Beobachter:innen: max. 3 Eigenschaften oder max. 10  Einzelverhaltensweisen pro Beobachtung (abhängig von Erfahrung der Beobachter:in)
+
+* Beobachtungseinheiten können klar voneinander **abgegrenzt** werden („unterbricht andere“ vs. „redet dazwischen“)
+
+**Tipp:** Beobachtungsplan in einem „Probedurchgang“ testen
+
+---
+class: top, left
+### Erhebungsmethoden der psychologischen Forschung
+
+#### (Verhaltens-)beobachtung
+
+##### Formen und Rahmenbedingungen für Beobachtungen
+
+**Wie wird Beobachtung registriert? - Time vs. Event Sampling**
+
+**Event Sampling:**
+
+Registrierung von Häufigkeit und/oder Dauer des Verhaltens- oder Situationsmerkmals über den gesamten Beobachtungszeitraum hinweg
+* es können auch seltene Ereignisse erfasst werden
+* erlaubt Überprüfung von Hypothesen zum Zusammenhang aufeinander folgender Ereignissen(Kontingenz)
+
+**Time Sampling** (Spezialfall des event sampling):
+
+* Unterteilung des Beobachtungszeitraums in gleich lange Zeitintervalle
+* Registrierung ob Verhaltensmerkmal im Zeitintervall gezeigt wird
+* Möglichkeit, Pausen einzubauen (z.B. nur in jedem 2. Zeitintervall beobachten)
+* Beobachterrotation möglich (z.B. Beobachter 1 im 1. Zeitintervall,  Beobachter 2 im 2. Zeitintervall)
+* oft akustischer oder vibrierender Signalgeber notwendig
+
+---
+class: top, left
+### Erhebungsmethoden der psychologischen Forschung
+
+#### (Verhaltens-)beobachtung
+
+##### Beispiel: Aggressives Verhalten von Kindergartenkindern (Time Sampling und Rating Skala)
+
+```{r echo = F}
+df = data.frame(Vehalten = c("1. schlägt, tritt",
+"2. schlägt zurück",
+"3. wirft mit Gegenstand",
+"4. wirft mit Gegenstand zurück",
+"5. droht, beschimpft",
+"6. droht, schimpft zurück",
+"7. zerstört beim Partner",
+"8. zerstört Eigenes",
+"9. zerstört beim Partner als Reaktion",
+"10. zerstört Eigenes als Reaktion")
+)
+sol = c("--", "-", "0", "+", "++")
+
+df[["Min. 1-5"]] = sample(sol, 10, replace = T)
+df[["Min. 6-10"]] = sample(sol, 10, replace = T)
+df[["Min. 11-15"]] = sample(sol, 10, replace = T)
+df[["Min. 16-20"]] = sample(sol, 10, replace = T)
+
+df %>%
+  kbl() %>%
+  kable_styling(font_size = 18) %>%
+  kable_classic(full_width = T)
+```
+
+---
+class: top, left
+### Erhebungsmethoden der psychologischen Forschung
+
+#### (Verhaltens-)beobachtung
+
+##### Übungsaufgabe:
+
+* Überlegen Sie sich einen geeigeneten Event Sampling Beobachtungsplan (wie oft wird Verhalten gezeigt) für **Werbungsverhalten von Säuglingen um die Aufmerksamkeit ihrer Eltern**
+
+1. Ableitung geeigneter Kagorien (max. 10)
+
+[**Link zur Beobachtungssituation**](https://www.youtube.com/watch?v=IeHcsFqK7So)
 
 ---
 class: top, left
