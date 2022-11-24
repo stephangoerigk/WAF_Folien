@@ -517,7 +517,7 @@ class: top, left
 
 .center[
 ```{r eval = TRUE, echo = F, out.width = "750px"}
-knitr::include_graphics("bilder/Behandlungsplaene.png")
+knitr::include_graphics("bilder/Behandlungsplaene.jpg")
 ```
 ]
 
