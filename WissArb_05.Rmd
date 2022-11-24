@@ -1,0 +1,818 @@
+---
+title: "Einheit"
+subtitle: "⚔<br/>with xaringan"
+author: "Dr. Stephan Goerigk"
+institute: "RStudio, PBC"
+date: "2016/12/12 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "hygge"]
+    lib_dir: libs
+    nature:
+      slideNumberFormat: "%current%"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+    seal: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+setwd("/Users/stephangoerigk/Desktop/Universität/CFH/Lehre/Bachelor/Empirisch-wissenschaftliches Arbeiten/VO_Wissenschaftliches Arbeiten und Forschungsmethoden/WAF_Folien/")
+
+library(tidyverse)
+library(kableExtra)
+library(ggplot2)
+library(plotly)
+library(htmlwidgets)
+library(MASS)
+library(ggpubr)
+library(xaringanthemer)
+library(xaringanExtra)
+
+style_duo_accent(
+  primary_color = "#621C37",
+  secondary_color = "#EE0071",
+  background_image = "blank.png"
+)
+
+xaringanExtra::use_xaringan_extra(c("tile_view"))
+
+# use_scribble(
+#   pen_color = "#EE0071",
+#   pen_size = 4
+#   )
+
+knitr::opts_chunk$set(
+  fig.retina = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+name: Title slide
+class: middle, left
+<br><br><br><br><br><br><br>
+# Wissenschaftliches Arbeiten und Forschungsmethoden
+
+### Einheit 5: Planung von Studien
+##### 24.11.2022 | Dr. phil. Stephan Goerigk
+
+---
+class: top, left
+### Planung von Studien
+
+####  Was gehört zur Studienplanung?
+
+1. Theoriearbeit und Literaturrecherche
+
+2. Hypothesenformulierung
+
+3. Design Plan
+
+4. Sampling Plan (Rekrutierungsplanung)
+
+5. Variablen (Auswahl Messinstrumente und Variablenrollen)
+
+6. Statistischer Analyseplan
+
+$\rightarrow$ Studienplanung in **Präregistrierung** festhalten ([**Link zum OSF**](https://osf.io/registries/osf/new?view_only=))
+
+---
+class: top, left
+### Planung von Studien
+
+####  Theoriearbeit und Literaturrecherche
+
+* Überblick verschaffen über derzeitigen Wissensstand im Feld
+
+* Informationen über klinische/gesellschaftliche Relevanz der Fragestellung
+
+* Relevante Theorien und Modelle recherchieren
+
+* Kernaspekte eigener Fragestellung theoretisch unterfüttern (Warum liegt die Fragestellung nahe?)
+
+Digitale Literaturrecherche (eigene Einheit):
+  * Google Scholar
+  * PubMed
+  * PSYNDEX
+  * ...
+
+---
+class: top, left
+### Planung von Studien
+
+####  Hypothesenformulierung
+
+* Führen Sie spezifische, prägnante und überprüfbare Hypothesen auf. 
+
+* Geben Sie an, ob es sich um gerichtete oder ungerichtete Hypothesen handelt. 
+
+* Wenn sie gerichtet sind, geben Sie die Richtung an. 
+
+* Auch ein vorhergesagter Effekt ist hier angebracht. 
+
+* Wenn eine bestimmte Wechselwirkung oder Moderation für Ihre Forschung wichtig ist, können Sie diese als separate Hypothese aufführen. 
+
+* Hypothesen können in Primär- und Sekundärhypothesen unterteilt werden
+
+* Es können konfirmatorische und explorative Hypothesen angegeben werden
+
+---
+class: top, left
+### Planung von Studien
+
+####  Design Plan
+
+##### Studienart
+
+<small>
+
+1.	Experiment 
+  * Ein Forscher weist den Studienteilnehmern nach dem Zufallsprinzip Behandlungen zu
+  * Dazu gehören Feld- oder Laborexperimente. 
+  * Dies wird auch als Interventionsexperiment bezeichnet und umfasst randomisierte kontrollierte Studien.
+  
+2.	Beobachtungsstudie 
+  * Es werden Daten von Versuchspersonen gesammelt, die nicht zufällig einer Behandlung zugewiesen werden. 
+  * Dazu gehören Umfragen, natürliche Experimente (Quasiexperimente) und Regressionsdiskontinuitätsstudien.
+
+3.	Meta-Analyse 
+  * Eine systematische Zusammenfassung von bereits veröffentlichten Studien.
+
+4.	Andere 
+
+</small>
+
+---
+class: top, left
+### Planung von Studien
+
+#### Design Plan
+
+##### Verblindung
+
+Die Verblindung beschreibt, wer von den experimentellen Manipulationen innerhalb einer Studie Kenntnis hat
+
+**Varianten:**
+
+1. In der Studie findet keine Verblindung statt.
+
+2. Versuchspersonen erfahren nicht, welcher Behandlungsgruppe sie zugeordnet wurden (**einfache Verblindung**)
+
+3. Personal, das direkt mit den Versuchspersonen (menschlichen oder nicht-menschlichen Versuchspersonen) interagiert, hat ebenfalls keine Kenntnis von den zugewiesenen Behandlungen. (**Doppelblindversuch**)
+
+4. Personal, das die im Rahmen der Studie gesammelten Daten analysiert, weiß nicht, welche Behandlung einer bestimmten Gruppe zugewiesen wurde (**Dreifachblindversuch**)
+
+$\rightarrow$ Je mehr Verblindung desto weniger Erwartungseffekt (aber nicht immer umsetzbar)
+
+---
+class: top, left
+### Planung von Studien
+
+#### Design Plan
+
+##### Studiendesign (Versuchsplan)
+
+Entscheidend ist, dass der Forscher so detailliert ist, wie es angesichts der Besonderheiten seines Designs erforderlich ist. 
+
+Achten Sie darauf, ob jeder Parameter in der Beschreibung des Studiendesigns angegeben wurde.
+
+Relevante Aspekte:
+
+* Gruppen-/Bedingungszuweisung der Versuchspersonen
+
+* Gruppenspezifische Interventionen
+
+* Messzeitpunkte/Messwiederholungen (z.B. Zeitreihen, Prä-Intervention, Post-Intervention, Follow-up,)
+
+$\rightarrow$ Idealerweise "Weg des einzelnen Probanden" in einem Designschema (z.B. Flowchart) darstellen
+
+---
+class: top, left
+### Planung von Studien
+
+####  Design Plan
+
+##### Studiendesign (Versuchsplan)
+
+**Nicht-Experimentelle Versuchspläne**
+
+<small>
+„nur“ systematische Beobachtung einer/mehrererVariablen
+* keine Manipulation
+* keine randomisierte Zuweisung zu Bedingungen
+
+Typische Desgins:
+
+* One-shot-design (deskriptive Untersuchungen, Umfrageforschung)
+* Korrelationsstudien (bi- oder multivariat)
+* Einfache Gruppenvergleiche
+* Prä-Post-Vergleich
+
+Interpretationsmöglichkeiten:
+* Prüfung von Kausalhypothesen nicht möglich
+</small>
+---
+class: top, left
+### Planung von Studien
+
+####  Design Plan
+
+##### Studiendesign (Versuchsplan)
+
+**Nicht-Experimentelle Versuchspläne**
+
+One-shot Design: 
+
+<small>
+* Rein deskriptive Erhebung Ist-Zustands einer AV (z.B. Umfrageforschung)
+* nur 1 Variable in 1 Gruppe (keine Unterscheidung UV/AV, Manipulation, Kontrollgruppe oder Randomisierung)
+* z.B. Messung Spendenaufkommen bei einer Gala
+
+Gängige Statistik:
+* Deskriptivstatistiken (Häufikeiten, Lagemaße, Streuungsmaße)
+
+Interpretationsmöglichkeiten:
+* Deskription über Häufigkeiten oder Merkmalsverteilungen zum Zeitpunkt der Messung
+* Effekt des Treatments nicht quantifizierbar (kein Vergleichswert)
+* Zusammenhang Treatment & Beobachtung kann nicht untersucht werden
+
+</small>
+
+---
+class: top, left
+### Planung von Studien
+
+####  Design Plan
+
+##### Studiendesign (Versuchsplan)
+
+**Nicht-Experimentelle Versuchspläne**
+
+Assoziationsstudien:
+<small>
+
+* Beobachtung von 2 Variablen in einer Stichprobe
+* keine Kontrollgruppe, keine Randomisierung, keine Manipulation (z.B. Geschäftserfolg & Extraversion)
+
+Bei theoretischer Definition von UV‐AV:
+* Simultane Erhebung der Variablen, aber theoretisch angenommene Kausalrichtung (z.B. je extrovertierter, desto erfolgreicher)
+
+Gängige Statistik:
+* Zusammenhangsmaße: Korrelationen, Regressionen
+
+Interpretationsmöglichkeiten:
+* Aussagen über Zusammenhang möglich
+* Aussagen über Kausalität nicht möglich
+
+</small>
+
+---
+class: top, left
+### Planung von Studien
+
+####  Design Plan
+
+##### Studiendesign (Versuchsplan)
+
+**Nicht-Experimentelle Versuchspläne**
+
+Einfacher Gruppenvergleich (Between-subjects design):
+
+<small>
+
+* Beobachtung einer AV in mehrere (durch kategoriale UV definierten) Gruppen
+* keine Manipulation, keine Randomisierung, UV‐AV‐Sequenz
+* z.B. UV Geschlecht, AV Aggression; Ergebnis: Geschlechtsunterschied
+* Problem: Unklar was für den Unterschied verantwortlich ist
+
+Gängige Statistik:
+* Gruppenvergleiche: unabhängiger t-Test, einfaktorielle ANOVA (Mittelwerte), U-Test, Kruskal-Wallis Test (Mediane), Chi-Quadrat-Test (Häufigkeiten)
+
+Interpretationsmöglichkeiten:
+* Aussagen über Gruppenunterschiede
+* Aussagen über Kausalität nicht möglich
+
+</small>
+
+---
+class: top, left
+### Planung von Studien
+
+####  Design Plan
+
+##### Studiendesign (Versuchsplan)
+
+**Nicht-Experimentelle Versuchspläne**
+
+Prä-Post-Vergleich (Within-subjects Design)
+
+<small>
+
+* „vorexperimentelle Anordnung“; Messwiederholung
+* Beobachtung einer AV in einer Stichprobe vor und nach einer Intervention
+* keine Kontrollgruppe, keine Randomisierung
+* z.B. Studierendenbefragung vor und nach einer Studienreform
+* Probleme: alle personengebundenen & zeitgebundenen Störvariablen (Woher kommt Veränderung?)
+
+Gängige Statistik:
+* Paarvergleiche: abhängiger t-Test, ANOVA mit Messwiederholung (Mittelwerte), Wilcox-Test (Mediane), hierarchische logistische Regression (Häufigkeiten)
+
+Interpretationsmöglichkeiten:
+* Aussagen über Unterschied zwischen Zeitpunkten
+* Aussagen über Kausalität nicht möglich
+
+</small>
+
+
+---
+class: top, left
+### Planung von Studien
+
+####  Design Plan
+
+##### Studiendesign (Versuchsplan)
+
+**Quasi-experimentelle Versuchspläne**
+
+<small>
+* Trennung UV/AV
+* systematische Beobachtung der AV
+* gezielte Manipulation der UV
+* keine randomisierte Zuweisung der VP zu den Bedingungen
+* Beispiel: Nicht-äquivalenter Kontrollgruppenplan
+
+Gängige Statistik:
+* Gruppenvergleiche: unabhängiger t-Test, einfaktorielle ANOVA (Mittelwerte), U-Test, Kruskal-Wallis Test (Mediane), Chi-Quadrat-Test (Häufigkeiten)
+
+Interpretationsmöglichkeiten:
+* Aussagen über Zusammenhang UV & AV
+* Aussagen über Kausalität nur eingeschränkt möglich
+* nur verwenden, wenn Experiment nicht durchführbar
+</small>
+---
+class: top, left
+### Planung von Studien
+
+####  Design Plan
+
+##### Studiendesign (Versuchsplan)
+
+**Quasi-experimentelle Versuchspläne**
+
+Problem von Quasi-Experimenten:
+
+**Experiment: **
+
+* alle möglichen/denkbaren SV sind durch Randomisierung kontrolliert
+
+* UV ist Ursache
+
+**Quasi‐Experiment: **
+
+* alle möglichen/denkbaren SV können systematisch mit Bedingung (d.h. mit UV) konfundiert
+sein
+
+* UV & SV als mögliche Ursache
+
+---
+class: top, left
+### Planung von Studien
+
+####  Design Plan
+
+##### Studiendesign (Versuchsplan)
+
+**Experimentelle Versuchspläne**
+
+* Trennung & Sequenz UV-AV
+* systematische Beobachtung der AV
+* gezielte Manipulation der UV(n)
+* randomisierte Zuweisung zu den Bedingungen
+
+Typische Versuchspläne:
+* Labor vs. Feldexperiment
+* Randomisierter Kontrollgruppenplan mit/ohne Vortest
+
+Interpretationsmöglichkeiten:
+* Aussagen über Zusammenhang UV & AV
+* Aussagen über Kausalität
+
+---
+class: top, left
+### Planung von Studien
+
+####  Design Plan
+
+##### Studiendesign (Versuchsplan)
+
+**Experimentelle Versuchspläne**
+
+Labor- & Feldexperiment
+<small>
+
+Beispiel: Steigt die Hilfsbereitschaft unter positiver Stimmung?
+
+Laborexperiment:
+* Beobachtung einer AV bei randomisierter Zuweisung zu Bedingungen der UV in „künstlicher“ Umgebung
+* Sind Probanden eher bereit, noch einen zweiten FB auszufüllen, wenn man ihnen zuvor fröhliche Musik
+vorgespielt hat?
+* Umgebung kontrollierbar $\rightarrow$ höhere interne Validität
+
+Feldexperiment:
+* Beobachtung einer AV bei randomisierter Zuweisung zu Bedingungen der UV in der „natürlichen“ Umgebung
+* Sind Leute eher bereit, jemanden am Kopierer vorzulassen, wenn sie zuvor dort 2 Euro gefunden haben?
+* Umgebung „natürlicher“ $\rightarrow$ u.U. höhere externe Validität
+
+</small>
+
+---
+class: top, left
+### Planung von Studien
+
+####  Design Plan
+
+##### Studiendesign (Versuchsplan)
+
+**Experimentelle Versuchspläne**
+
+Arten von Kontrollgruppen
+
+* keine Behandlung
+
+* Placebo-Behandlung
+
+* etablierte Standard-Behandlung (Treatment as usual, TAU)
+
+* Wartelistenplatz: Behandlung erfolgt nach der Studie
+
+ $\rightarrow$ je nach Fragestellung andere Typen von Kontrollgruppen sinnvoll
+ 
+---
+class: top, left
+### Planung von Studien
+
+####  Design Plan
+
+##### Studiendesign (Versuchsplan)
+
+**Experimentelle Versuchspläne**
+
+Kontrollgruppenplan ohne Vortest
+
+<small>
+* Beobachtung der AV nach Randomisierung & Manipulation der UV
+* z.B. Wirksamkeit des Marathon-Trainings nach zufälliger Zuweisung
+
+Gängige Statistik:
+* Gruppenvergleiche: unabhängiger t-Test, einfaktorielle ANOVA (Mittelwerte), U-Test, Kruskal-Wallis Test (Mediane), Chi-Quadrat-Test (Häufigkeiten)
+
+Interpretationsmöglichkeiten:
+* Aussagen über Zusammenhang UV & AV
+* Aussagen über Kausalität
+
+Varianten:
+* Treatment vs. Kontrolle; Treatment vs. Treatment
+  
+</small>
+
+---
+class: top, left
+### Planung von Studien
+
+####  Design Plan
+
+##### Studiendesign (Versuchsplan)
+
+**Experimentelle Versuchspläne**
+
+Kontrollgruppenplan mit Vortest (Mixed Design)
+
+<small>
+* Prä-Post-Messungen bei randomisierter Zuordnung zu unterschiedlichen Treatments
+* vorher bestehende Unterschiede zwischen den Gruppen prüfbar; reduziert Fehlervarianz (erhöht statistische Validität)
+
+Problem: 
+* Sensitivierung, Übungseffekte; durch Vortest (potentielle Gefährdung interne bzw. Konstruktvalidität, abhängig von Messmethode)
+
+Gängige Statistik: 
+* Kombination Vergleiche Gruppen- und Messzeitpunkt: Mixed ANOVA, linear mixed model (LMM)
+
+Interpretationsmöglichkeiten
+* Aussagen über Zusammenhang UV & AV
+* Aussagen über Kausalität
+
+</small>
+
+---
+class: top, left
+### Planung von Studien
+
+####  Design Plan
+
+##### Studiendesign (Versuchsplan)
+
+.center[
+```{r eval = TRUE, echo = F, out.width = "750px"}
+knitr::include_graphics("bilder/Behandlungspläne.png")
+```
+]
+
+---
+class: top, left
+### Planung von Studien
+
+####  Design Plan
+
+##### Studiendesign (Versuchsplan)
+
+Verbalisierte Beispiele: Koffeinkonsum und Wachheit
+
+<small>
+**One-Shot: **Wie wach sind die Kaffetrinker in der Stichprobe?
+
+**Einfacher Gruppenvergleich: **Wie wach sind die weiblichen vs. männlichen Kaffetrinker in der Stichprobe?
+
+**Prä-Post Vergleich: **Wie hoch ist der Unterschied in der Wachheit bevor und nach dem Konsum von Kaffee?
+
+**Nicht-äquivalenter Kontrollgruppenplan (Quasi-Experiment):** Wie hoch ist der Unterschied in der Prä-Post Messung von Leuten die morgens Kaffee trinken im Vergleich zu denen, die morgens entkaffenierten Kaffee trinken.
+
+**Kontrollgruppenplan ohne Vortest: **Wie hoch ist der Unterschied in der Wachheit zwischen denen die zufällig einer Kaffee Bedingung zugeteilt wurden vs. denen die zufällig einer entkaffenierten Kaffee Bedingung zugeteilt wurden.
+
+**Kontrollgruppenplan mit Vortest: **Wie hoch ist der Prä-Post Unterschied in der Wachheit zwischen denen die zufällig einer Kaffee Bedingung zugeteilt wurden vs. denen die zufällig einer entkaffenierten Kaffee Bedingung zugeteilt wurden.
+
+</small>
+
+---
+class: top, left
+### Planung von Studien
+
+####  Design Plan
+
+##### Randomisierung
+
+<small>
+
+**Definition:**
+* zufällige Zuweisung der Untersuchungseinheiten zu Bedingungen/Gruppen
+* Technik zur Kontrolle in der Person liegender, unveränderlicher Störvariablen
+* vorhandene Störvariablen werden nach Zufall auf die Gruppen verteilt
+
+**Ergebnis der Randomisierung:**
+* Störvariablen sind nicht mit Bedingungszugehörigkeit konfundiert
+* Bedingungen/Gruppen sind bzgl. aller Variablen gleich (bis auf Zufallsschwankungen; Gruppe: N ≥ 30)
+* Definition Experiment: Wenn bzgl. einer UV randomisiert wird, dann ist die Untersuchung bzgl. dieser UV ein Experiment
+
+**Randomisierung & interne Validität**
+* Interne Validität kann durch externe Faktoren möglicherweise bedroht sein$\rightarrow$ Randomisierung $\rightarrow$ gleiche WS externer Störeinflüsse in beiden Gruppen
+
+</small>
+
+---
+class: top, left
+### Planung von Studien
+
+####  Design Plan
+
+##### Randomisierung
+
+<small>
+* Einfache Randomisierung (Münzwurf)
+  * Kann zufällig zu unterschiedlichen Gruppengrößen führen
+
+* Block-Randomisierung (mit zufälliger Blockgröße)
+  * gleich Gruppengrößen (aber letzte Elemente vorhersehbar) $\rightarrow$ daher: Randomisierung der Blockgrößen
+
+* Urnenrandomisierung
+
+* Stratifizierte Randomisierung
+  * Gleichmäßige Aufteilung eines Covariates
+  
+* Kovariat-Adaptive Randomisierung
+  * Nachsteuerung der Gruppengrößenbalance während der Studie
+
+* Minimisierung
+
+</small>
+
+[**Link zu Erklärvideo**](https://www.youtube.com/watch?v=EAGZ4dx5I00)
+
+---
+class: top, left
+### Planung von Studien
+
+####  Sampling Plan (Rekrutierungsplanung)
+
+##### Vorab-existierende Daten
+<small>
+Wenn für eine Studie auf einem bereits bestehenden Datensatz Berechnungen durchgeführt werden, muss dies auch überlegt und dokumentiert werden.
+
+Dabei wird i.d.R. der Zeitpunkt der Registrierung festgelegt:
+
+* Registrierung vor der Sammlung der Daten
+  * Daten noch nicht erhoben, erstellt oder realisiert worden
+* Registrierung vor jeglicher menschlicher Beobachtung der Daten
+  *  Daten vorhanden, wurden aber noch von niemandem quantifiziert, erstellt, beobachtet oder gemeldet
+* Registrierung vor dem Zugriff auf die Daten
+  * Daten vorhanden, aber Sie oder Ihre Mitarbeiter haben noch keinen Zugriff darauf
+* Registrierung vor der Analyse der Daten
+  * Daten vorhanden und Sie haben darauf zugegriffen, aber es wurde noch keine Analyse im Zusammenhang mit dem Forschungsplan durchgeführt 
+* Registrierung nach der Analyse der Daten
+  * Sie haben auf einen Teil der für den Forschungsplan relevanten Daten zugegriffen und diese analysiert
+
+</small>
+
+**WICHTIG:** Für die Abschlussabeiten soll zu Übungszwecken von einer Neuerhebung ausgegangen werden (auch wenn Ihnen Daten zur Verfügung gestellt werden)!
+
+---
+class: top, left
+### Planung von Studien
+
+####  Sampling Plan (Rekrutierungsplanung)
+
+##### Auswahl der Untersuchungsobjekte 
+
+<small>
+
+* Frage: an welchen bzw. an wie vielen Untersuchungsobjekten die Variablen erhoben werden
+
+* Untersuchungsteilnehmer, deren Beobachtung oder Beschreibung interessante Hypothesen versprechen
+
+Wichtigstes Kriterium: Repräsentativität der Stichprobe
+
+* Repräsentativität = Stichprobe muss in ihrer Zusammensetzung der Population möglichst stark ähneln
+
+* Stichprobe ist (merkmals)spezifisch repräsentativ, wenn ihre Zusammensetzung hinsichtlich relevanter Merkmale der Populationszusammensetzung entspricht
+
+* Stichprobe  ist global repräsentativ, wenn ihre Zusammensetzung in nahezu allen Merkmalen der Populationszusammensetzung entspricht
+
+* große Stichprobe garantiert nicht Repräsentativität (gilt nur bei unverzerrter Auswahl)
+
+* beste Gewähr für größtmögliche globale Repräsentativität bietet die Zufallsstichprobe
+
+</small>
+
+---
+class: top, left
+### Planung von Studien
+
+####  Sampling Plan (Rekrutierungsplanung)
+
+##### Auswahl der Untersuchungsobjekte 
+
+**Einschluss- und Ausschlusskriterien:**
+
+Einschlusskriterien:
+
+* globale Population aller Menschen ist nicht für jede Fragestellung geeignet
+
+* Selektion zur Erhöhung der Auftretenswahrscheinlichkeit relevanter Merkmale (z.B. bestimmte Diagnose, bestimmte Altersklasse...)
+
+Ausschlusskriterien:
+
+* Manche Charakteristika machen Untersuchung einzelner Personen inhaltlich/ethisch unmöglich
+
+* Ausschlusskriterien müssen gut überlegt und genau dokumentiert werden
+
+---
+class: top, left
+### Planung von Studien
+
+####  Sampling Plan (Rekrutierungsplanung)
+
+##### Größe der Stichprobe
+
+<small>
+* Die Festlegung des Stichprobenumfanges sollte ebenfalls in der Planungsphase erfolgen.
+
+* Verbindliche Angaben nur möglich, wenn eine hypothesenprüfende Untersuchung mit vorgegebener Effektgröße geplant wird
+
+* Für die Größe von Stichproben, mit denen unspezifische Hypothesen geprüft werden, gibt es keine genauen Richtlinien
+
+* Berechnung des geplanten Stichprobenumfangs: Power Analyse (z.B. freies Programm GPower; [**Link zu Erklärvideo**](https://www.youtube.com/watch?v=7J7ZLp5Q2H8))
+
+* Ziel: Bestimmung einer Stichprobengröße, die bei angenommender Effektgröße eine statistisch-signifikantes Ergebnis ermöglicht 
+
+* Zusammenspiel aus Signifikanzniveau (Wahrscheinlichkeit für Fehler 1. Art) und Power (1 - Wahrscheinlichkeit für Fehler 2. Art)
+
+* Poweranalyse richtet sich nach der Hauptfragestellung (primärer zu überprüfender Hypothese)
+
+Relevante Parameter:
+  * Effektstärke (aus Vorstudien oder basierend auf Plausibilitätsannahme) $\rightarrow$ je größer desto kleineres N benötigt
+  * Signifikanzniveau (i.d.R. alpha = .05) $\rightarrow$ je kleiner desto kleineres N benötigt
+  * Power (i.d.R. mindestens 0.8) $\rightarrow$ je größer desto kleineres N benötigt
+  
+</small>
+
+---
+class: top, left
+### Planung von Studien
+
+####  Sampling Plan (Rekrutierungsplanung)
+
+**Beispiel: **Poweranalyse für einen unabhängigen t-Test (auch für andere Hypothesentests möglich)
+
+.pull-left[
+.center[
+```{r eval = TRUE, echo = F, out.width = "450px"}
+knitr::include_graphics("bilder/gpower.png")
+```
+]
+]
+.pull-right[
+* Bei a priori Annahme einer Effektstärke von Cohen's d = 0.5 für den Mittelwertsunterschied (mittlerer Effekt)
+
+* ...einem Signifikanzniveau von alpha =.05
+
+* ... einer Power von 0.8 (Chance auf positives Ergebnis)
+
+* ... und gleichen Gruppengrößen (allocation ration = 1)
+
+benötigt man N = 102 Personen (51 pro Gruppe), um in einem einseitigen unabhängigen t-Test einen signifikanten Gruppenunterschied nachzuweisen
+]
+
+---
+class: top, left
+### Planung von Studien
+
+####  Sampling Plan (Rekrutierungsplanung)
+
+##### Anwerbung von Untersuchungsteilnehmern:
+
+* Wo soll rekrutiert werden?
+
+* Mit welchen Mitteln?
+
+* Wird es eine Vergütung geben?
+
+* Ist die Teilnahme Teil eines erweiterten (Forschungs-/Behandlungs-)Programms
+
+---
+class: top, left
+### Planung von Studien
+
+####  Sampling Plan (Rekrutierungsplanung)
+
+Determinanten der freiwilligen Untersuchungsteilnahme (Bortz und Döhring, 2012)
+
+* Freiwillige Untersuchungsteilnehmer verfügen über eine bessere schulische Ausbildung als Verweigerer (bessere Notendurchschnitte). 
+* Freiwillige Untersuchungsteilnehmer schätzen ihren eigenen sozialen Status höher ein als Verweigerer.
+* Die meisten Untersuchungsergebnisse sprechen für eine höhere Intelligenz freiwilliger Untersuchungsteilnehmer 
+* Freiwillige benötigen mehr soziale Anerkennung als Verweigerer.
+* Freiwillige Untersuchungsteilnehmer sind geselliger als Verweigerer.
+* In Untersuchungen über geschlechtsspezifisches Verhalten geben sich freiwillige Untersuchungsteilnehmer unkonventioneller als Verweigerer.
+* Im Allgemeinen sind weibliche Personen eher zur freiwilligen Untersuchungsteilnahme bereit als männliche Personen.
+* Freiwillige Untersuchungsteilnehmer sind weniger autoritär als Verweigerer.
+* Die Tendenz zu konformem Verhalten ist bei Verweigerern stärker ausgeprägt als bei freiwilligen Untersuchungsteilnehmern.
+
+---
+class: top, left
+### Planung von Studien
+
+#### Variablen (Auswahl Messinstrumente und Variablenrollen)
+
+* Unterscheidung: manipulierte (UV) und gemessene Variablen
+
+* Beschreiben Sie alle Variablen, die Sie zu manipulieren beabsichtigen, sowie deren Stufen. Dies gilt nicht für Beobachtungsstudien. 
+
+* Kurze Beschreibung aller gemessenen Variablen
+  * abhängige Variablen (Outcomes)
+  * Prädiktoren (Moderatoren, Mediatoren)
+  * Kovariate (Kontrollvariablen die mitgemessen werden)
+
+* Operationalisierung und Verechnungsregeln definieren
+
+* Abklärung der Güte von Messinstrumenten (Reliabilität, Validität, Normierung)
+
+* Ggf. Variablen den Hypothesen zuordnen
+
+---
+class: top, left
+### Planung von Studien
+
+#### Statistischer Analyseplan
+
+<small>
+
+* In welcher Weise sollen die elektronisch erfassten Daten vorbereitet und bereinigt werden?
+
+* Welche statistischen Verfahren (z. B. t-Test, Varianzanalyse, Faktorenanalyse, Korrelationsanalyse) sollen eingesetzt werden? 
+
+* Welche Statistiksoftware ist für die geplanten Analysen geeignet und zugänglich
+
+* Mit welchen Programmbefehlen/-paketen können die gewünschten Analysen ausgeführt werden, welche Zusatzoptionen sind wichtig (nur grob darstellen?
+
+Formale Voraussetzungen:
+* Testauswahl nach Operationalisierung, Skalenniveau, Anzahl der Variablen und Faktorstufen
+* Umgang mit fehlenden Werten und ggf. Ausreißern
+* Festlegung des Signifikanzniveaus (α-Fehler-Niveaus)
+* Umgang mit multiplem Testen (alpha-Fehler Kumulierung)
+* ggf. präzise Angaben über praktisch bedeutsame Mindestgrößen (falls bekannt)
+* Festlegung von zu berechnenden Effektstärken
+* Festlegung geplanter Kontrollvariablen
+
+</small>
+
