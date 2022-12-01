@@ -1,0 +1,658 @@
+---
+title: "Einheit"
+subtitle: "⚔<br/>with xaringan"
+author: "Dr. Stephan Goerigk"
+institute: "RStudio, PBC"
+date: "2016/12/12 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "hygge"]
+    lib_dir: libs
+    nature:
+      slideNumberFormat: "%current%"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+    seal: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+setwd("/Users/stephangoerigk/Desktop/Universität/CFH/Lehre/Bachelor/Empirisch-wissenschaftliches Arbeiten/VO_Wissenschaftliches Arbeiten und Forschungsmethoden/WAF_Folien/")
+
+library(tidyverse)
+library(kableExtra)
+library(ggplot2)
+library(plotly)
+library(htmlwidgets)
+library(MASS)
+library(ggpubr)
+library(xaringanthemer)
+library(xaringanExtra)
+
+style_duo_accent(
+  primary_color = "#621C37",
+  secondary_color = "#EE0071",
+  background_image = "blank.png"
+)
+
+xaringanExtra::use_xaringan_extra(c("tile_view"))
+
+# use_scribble(
+#   pen_color = "#EE0071",
+#   pen_size = 4
+#   )
+
+knitr::opts_chunk$set(
+  fig.retina = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+name: Title slide
+class: middle, left
+<br><br><br><br><br><br><br>
+# Wissenschaftliches Arbeiten und Forschungsmethoden
+
+### Einheit 6: Durchführung von Studien
+##### 01.12.2022 | Dr. phil. Stephan Goerigk
+
+---
+class: top, left
+### Gütekriterien
+
+####  Qualitätskriterien von Erhebungsmethoden
+
+Zur Auswahl und Bewertung psychologischer Erhebungsmethoden müssen Kriterien berücksichtigt werden:
+
+.pull-left[
+**Hauptgütekriterien: **
+
+* Objektivität
+
+* Reliabilität
+
+* Validität
+]
+
+.pull-right[
+**Nebengütekriterien: **
+
+* Skalierung
+
+* Normierung
+
+* Ökonomie
+
+* Nützlichkeit
+
+* Zumutbarkeit
+
+* Unverfälschbarkeit 
+
+* Fairness
+]
+
+---
+class: top, left
+### Gütekriterien
+
+####  Qualitätskriterien von Erhebungsmethoden
+
+##### Objektivität
+
+**Definition:**
+Eine Erhebungsmethode ist objektiv, wenn sie das Merkmal unabhängig von Testleiter:in, Testauswerter:in und von Ergebnisinterpretation misst.
+
+3 Bereiche lassen sich unterscheiden:
+
+1. **Durchführungsobjektivität (Testleiterunabhängigkeit) **
+
+2. Auswertungsobjektivität (Verrechnungssicherheit)
+
+3. Interpretationsobjektivität (Interpretationseindeutigkeit)
+
+---
+class: top, left
+### Gütekriterien
+
+####  Qualitätskriterien von Erhebungsmethoden
+
+##### Objektivität
+
+**Durchführungsobjektivität:**
+
+Definition: 
+
+Testergebnis soll nicht davon abhängen, welche Testleiter:in Test durchführt 
+
+$\rightarrow$ Erhebung sollte unter möglichst standardisierten Bedingungen stattfinden
+
+Standardisierung wird optimiert durch:
+
+* Instruktionen der Testleiter schriftlich festgehalten
+* soziale Interaktion zwischen Versuchsleiter und Testperson gering halten 
+* für möglichst ähnliche Untersuchungssituation sorgen
+
+---
+class: top, left
+### Gütekriterien
+
+#### Beispiele für Studien in der Psychologie:
+
+**Das Marshmellow Experiment (Mischel, 1989)** ([**Link zum Video**](https://www.youtube.com/watch?v=QX_oy9614HQ))
+
+* Experiment zum Belohnungsaufschub und zur Impulskontrolle
+
+* Fähigkeit kurzfristig auf etwas Verlockendes für die Erreichung langfristiger Ziele zu verzichten 
+
+**Prüfen Sie, inwieweit Sie das Gütekriterium der Objektivität erfüllt sehen. Durch welche Maßnahmen ließe sich die Güte noch erhöhen?**
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Kausalität & Konfundierung
+
+**Methode: Experiment**
+* Vergleich von Bedingungskonstellationen, die sich nur im Hinblick auf das Vorhandensein der
+  vermuteten Ursache (UV) unterscheiden $\rightarrow$ Aktive Manipulation der UV
+* Konstanthaltung anderer Faktoren (Kontrolle von Störvariablen)
+* beobachten, ob der zu erklärende Sachverhalt (AV) eintritt oder nicht
+
+**Kausale Interpretation**
+* Ergebnis: (k)ein Effekt in der AV (Unterschied zwischen 2 oder mehr Bedingungen)
+* Kausale Interpretation: UV ist (k)eine Ursache für den Effekt auf die AV
+
+**Konfundierung**
+* gemeinsame Variation der UV (vermutete Ursache) mit (mindestens) einer anderen Variable (Störvariable, SV)
+* SV kann als Ursache für den beobachteten Sachverhalt nicht ausgeschlossen werden $\rightarrow$ UV kann nicht als Ursache interpretiert werden!
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Störvariablen
+
+**Kontrolle von Störvariablen:**
+
+* Störvariablen (SV): alle Variablen (außer der interessierenden UV), die potentiell Einfluss auf AV haben können
+
+* besonders problematisch, wenn mit UV assoziiert (konfundiert): Effekt ist u.U. nicht auf UV zurückzuführen, sondern auf eine nicht‐kontrollierte SV, die systematisch mit der UV variiert
+
+**Ziel der Versuchsplanung (nach Hager, 1987)**
+
+* gemeinsame systematische Variation von möglichen Störfaktoren mit hypothesenrelevanter UV verhindern
+
+* bzw. statistische Assoziation zwischen den potentiellen Störfaktoren & der UV auf den Wert 0 bringen
+
+* in dem Ausmaß, in dem dies für einen der möglichen Störfaktoren gelingt, nennen wir diesen kontrolliert
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Störvariablen
+
+**Systematische Störvariablen**
+
+* kovariieren mit UV (d.h. in verschiedenen Versuchsbedingungen unterschiedlich stark ausgeprägt)
+
+* können fälschlicherweise einen Effekt der UV auf die AV suggerieren
+
+* Bsp: Trainierte: bessere Leistung (AV), aber nicht wegen Training (UV), sondern wegen höherer Motivation (SV)
+
+* können einen tatsächlich vorhandenen Effekt verschleiern
+
+$\rightarrow$ überwiegend unmotivierte VP im Training: positiver Effekt des Trainings (UV) wird durch negativen Effekt der Motivation (SV) verdeckt
+
+**Konsequenz systematischer Störvariablen**
+
+Falsche Schlussfolgerungen hinsichtlich des Effekts der UV auf die AV sind möglich, wenn SV nicht berücksichtigt wird.
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Störvariablen
+
+**Unsystematische Störvariablen**
+
+* kovariieren nicht mit der UV (d.h. in allen Versuchsbedingungen ungefähr gleich stark ausgeprägt)
+
+* können systematische Effekte der UV durch hohe Fehlervarianz überdecken
+
+* können das Auftreten von Effekten nicht erklären
+
+* gibt es in jeder Untersuchung; vergrößern die Varianz in der AV/der Messung (Fehlervarianz; „Rauschen“; geringe Reliabilität der Messung)
+
+**Konsequenz unsystematische Störvariablen:**
+
+Wenn kein Effekt gefunden wird, kann dies an der erhöhten Fehlervarianz liegen. Wenn ein Effekt beobachtet wird, kann die unsystematische SV nicht dafür verantwortlich sein.
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Störvariablen
+
+**Kontrolle von Störvariablen:**
+
+**2 Ziele:**
+1. Kontrolle systematischer Störvariablen
+  
+  * die gemeinsame systematische Variation von möglichen Störfaktoren mit der hypothesenrelevanten UV zu verhindern 
+  * die statistische Assoziation zwischen den potentiellen Störfaktoren und der UV auf den Wert Null zu bringen
+  
+  $\rightarrow$ erhöht interne Validität
+
+2. Reduktion unsystematischer/zufälliger Störvariablen
+  
+  * Reduktion der Fehlervarianz erhöht den Anteil der Effektvarianz an der Gesamtvarianz
+    
+  $\rightarrow$ erhöht statistische Validität
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Störvariablen
+
+**Quellen von Störvariablen:**
+
+* Teilnehmer:innen:
+  * Geschlecht, Intelligenz, Einkommen, Ängstlichkeit, Sucht, Haustier,...,
+  * alle Eigenschaften mit potentiellem (direktem oder indirektem) Einfluss auf die AV
+* Versuchsleiter:innen:
+  * Geschlecht, Alter, Autorität, Status, Attraktivität, Strenge,...
+  * Erwartungen bzgl. der Untersuchungsergebnisse...
+* Situation:
+  * Lärm, Beleuchtung, Tageszeit, Jahreszeit, Konjunktur, Publikum
+  * Messinstrument, Reaktivität der Messung, demand characteristics
+* Reihenfolge/Messwiederholung
+  * Positionseffekte
+  * Übungs‐, Erinnerungs‐, Ermüdungseffekte
+  * Sensibilisierungseffekte
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Kontrolltechniken
+
+```{r echo=F}
+
+df = data.frame(Quelle = c("Teilnehmer:innen",
+                           "",
+                           "Versuchsleiter:innen",
+                           "",
+                           "",
+                           "",
+                           "Situation",
+                           "",
+                           "",
+                           "",
+                           "Messwiederholung"),
+                Technik = c("Randomisierung",
+                            "Parallelisierung",
+                            "Standardisierung",
+                            "Automatisierung",
+                            "Versuchleiter-Training",
+                            "Verblindung",
+                            "Konstanthaltung",
+                            "Elimination",
+                            "Kontrollfaktoren",
+                            "Täuschung",
+                            "Ausbalancieren"),
+                Systematische = c("++", 
+                                  "+",
+                                  "+",
+                                  "+",
+                                  "+",
+                                  "+",
+                                  "+",
+                                  "+",
+                                  "+",
+                                  "+",
+                                  "+"),
+                Unsystematische = c("",
+                                    "",
+                                    "+",
+                                    "",
+                                    "+",
+                                    "",
+                                    "+",
+                                    "+",
+                                    "",
+                                    "",
+                                    ""))
+names(df) = c("Quelle", "Technik", "Systematische Fehler", "Unsystematische Fehler")
+
+df %>%
+  kbl() %>%
+  kable_styling(font_size = 18) %>%
+  kable_classic(full_width = T)
+```
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Teilnehmer:innen
+
+#### Randomisierung
+
+**Definition:**
+* zufällige Zuweisung der Untersuchungseinheiten zu Bedingungen
+* Technik zur Kontrolle in der Person liegender, unveränderlicher Störvariablen
+* vorhandene Störvariablen werden nach Zufall (gleichmäßig) auf die Gruppen verteilt
+
+**Ergebnis der Randomisierung:**
+* Störvariablen sind nicht mit Bedingungszugehörigkeit konfundiert (bis auf Zufallsschwankungen)
+* Definition Experiment: Wenn bzgl. einer UV randomisiert wird, dann ist Untersuchung bzgl. dieser UV ein Experiment
+
+**Randomisierung & interne Validität**
+* Interne Validität kann durch externe Faktoren möglicherweise bedroht sein $\rightarrow$ Randomisierung $\rightarrow$ gleiche WS externer Störeinflüsse in beiden Gruppen
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Teilnehmer:innen
+
+#### Randomisierung
+
+##### Varianten der Randomisierung
+
+<small>
+* Einfache Randomisierung (Münzwurf)
+  * Kann zufällig zu unterschiedlichen Gruppengrößen führen
+
+* Block-Randomisierung (mit zufälliger Blockgröße)
+  * gleich Gruppengrößen (aber letzte Elemente vorhersehbar) $\rightarrow$ daher: Randomisierung der Blockgrößen
+
+* Urnenrandomisierung
+
+* Stratifizierte Randomisierung
+  * Gleichmäßige Aufteilung eines Covariates
+  
+* Kovariat-Adaptive Randomisierung
+  * Nachsteuerung der Gruppengrößenbalance während der Studie
+
+* Minimisierung
+
+[**Link zu Erklärvideo**](https://www.youtube.com/watch?v=EAGZ4dx5I00)
+
+</small>
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Teilnehmer:innen
+
+#### Parallelisierung (Matching)
+
+* Vergleichbarkeit der Gruppen bzgl. einer bekannten Störvariable herstellen
+* Bei kleinen SP zuverlässiger als Randomisierung – aber nur bzgl. einer SV!
+
+**Umsetzung:**
+* SV bei allen Teilnehmern des Experiments erfassen
+* Rangreihe bzgl. der SV bilden
+* jeweils benachbarte Rangplätze werden per Zufall auf die Bedingungen aufgeteilt
+
+**Voraussetzungen:**
+* reliable & valide Messbarkeit der zu kontrollierenden SV
+* Verfügbarkeit der gesamten SP zur Erfassung der SV vor der eigentlichen Untersuchung
+* theoretische und/oder empirische Begründung der Bedeutsamkeit der SV
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Teilnehmer:innen
+
+####  Reaktivität
+
+* Von Beginn an ist die Reaktivität der Erhebungsmethoden zu beachten.
+
+* Definition: Veränderung/Verzerrung der erhobener Daten aufgrund der Kenntnis der untersuchten Person darüber, dass sie Gegenstand einer Untersuchung ist
+
+$\rightarrow$ Datenerhebungen in Psychologie verändern oft bereits den Gegenstand
+
+**Beispiel: Hawthorne-Effekt**
+
+* klassische Studie in den Hawthorne-Werken der Western Electric Company (Roethlisberger und Dickson, 1939)
+
+* bloße wissenschaftliche Untersuchung der Arbeiter:innen führte zu Steigerung der Produktivität 
+
+* Produktivitätssteigerung war **unabhängig** von den durch die Forscher implementierten Veränderungen der Arbeitsbedingungen
+
+* **Bewertungserwartung** der untersuchten Personen aka. **Aufforderungscharakteristika** der Untersuchung
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Teilnehmer:innen
+
+####  Maßnahmen zur Reduktion von Reaktivität
+
+```{r echo = F}
+
+df = data.frame(Maßnahme = c("Versuchspersonen in Unkenntnis darüber lassen, dass sie untersucht werden",
+                             "Versuchspersonen Anonymität zusichern",
+                             "Coverstory über den Untersuchungszweck entwickeln",
+                             "Maße einsetzen, die von Versuchspersonen nicht kontrolliert oder beeinflusst werden können (nicht-reaktive Messverfahren)",
+                             "Indirekte/implizite Messverfahren einsetzen"),
+                Bewertung = c("Nur in Feld-, Archiv- oder Internetstudien praktikabel, nicht in Laborstudien; kann ethisch problematisch sein",
+                             "Besonders wichtig bei der Erhebung von persönlichen/sensiblen Daten; reduziert sozial-erwünschtes Antworten",
+                             "Wichtig in hypothesenprüfenden Studien, in denen die Versuchspersonen erforschtes Verhalten kontrollieren können; Täuschung ethisch zu reflektieren",
+                             "Angenommen für biopsychologische Maße, die kaum kontrollierbare physiologische Vorgänge erfassen (z.B. Messung von Hormonspiegeln oder  Verfahren zur Messung der Gehirnaktivität",
+                             "Versuchspersonen können aus gemessenen Verhaltensweisen (oft Reaktionszeiten) nur schwer auf das untersuchte Konstrukt schließen"))
+
+df %>%
+  kbl() %>%
+  kable_styling(font_size = 18) %>%
+  kable_classic(full_width = T)
+```
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Teilnehmer:innen + Versuchsleiter:innen
+
+#### Verblindung
+
+* Verblindung: Information über Versuchsbedingung vorenthalten
+
+* Verhindert systematische Effekte dieser Information (z.B. über Erwartungen der VP oder des VL)
+
+**3 Varianten:**
+
+* Einfache Verblindung: VP hat keine Kenntnis über die Versuchsbedingung, der er zugeordnet ist
+
+* Doppelte Verblindung: VP & VL haben keine Kenntnis über Versuchsbedingung
+
+* Dreifache Verblindung: VP, VL & Auswerter haben keine Kenntnis über Versuchsbedingung
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Versuchsleiter:innen
+
+#### Beobachtungsfehler und -verzerrungen (Beispiele)
+
+```{r echo = F}
+
+df = data.frame(Beobachtungsfehler = c("Beobachterdrift",
+                                       "Erinnerungseffekte",
+                                       "Haloeffekt",
+                                       "Logischer Fehler",
+                                       "Primacy Effekt",
+                                       "Recency Effekt",
+                                       "Mildeeffekt",
+                                       "Strengeeffekt",
+                                       "Zentrale Tendenz",
+                                       "Tendenz zu Extremurteilen",
+                                       "Kontrasteffekt"),
+                Beschreibung = c("Im Verlauf zunehmend weniger/mehr Auftreten registrieren sich am Verhalten nichts verändert hat (oft wegen Ermüdung, mangelnder Übung)",
+                                 "Verzerrungen wenn nicht unmittelbar protokolliert wird",
+                                 "Eine Eigenschaft einer Person wird durch eine andere Eigenschaft „überstrahlt“",
+                                 "Von einem Hinweisreiz wird auf eine Eigenschaft geschlossen (obwohl kein Zusammenhang besteht)",
+                                 "Überbetonung der esten Information",
+                                 "Überbetonung der letzten Information",
+                                 "Verzerrung zum Positiven",
+                                 "Verzerrung zum Negativen",
+                                 "Bevorzugung der Skalenmitte (häufig wegen Unsicherheit beim Beurteilen)",
+                                 "Bevorzugung der Skalenpole",
+                                 "Einschätzung einer Person hängt von jener der zuvor eingeschätzten Person ab"))
+
+df %>%
+  kbl() %>%
+  kable_styling(font_size = 17) %>%
+  kable_classic(full_width = T)
+```
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Versuchsleiter:innen
+
+##### Verringern von Beobachtungsfehlern und -verzerrungen 
+
+```{r echo = F}
+
+df = data.frame(Beobachtungsfehler = c("Grenzwerte",
+                                       "Verhaltensnahe Beobachtung",
+                                       "konkreter/eindeutiger Beobachtungsplan",
+                                       "Beobachterschulung",
+                                       "Beobachterrotation"
+                               ),
+                Beschreibung = c("Limit an zu beobachtenden Verhaltensmerkmalen und Beobachtungsdauer für BeobachterInnen",
+                                 "Beobachtbare Einheiten, Vermeidung von Interpretation",
+                                 "Missverständniss vermeiden, klare Kategorien",
+                                 "Vertrautmachen mit Protokollbogen, Definieren der Verhaltensmerkmale, Probedurchgänge",
+                                 "verschiedene Beobachter:innen eingesetzen; Versuchsperson in verschiedenen Situationen durch unterschiedliche Beobachter:innen beobachten"
+                                ))
+
+df %>%
+  kbl() %>%
+  kable_styling(font_size = 18) %>%
+  kable_classic(full_width = T)
+```
+
+* auch bei Berücksichtigung sind Beobachtungsfehler nicht auszuschließen.
+* bei jeder Verhaltensbeobachtung Beobachterübereinstimmung empirisch prüfen! 
+
+$\rightarrow$ auch Beobachterübereinstimmung garantiert noch nicht dass keine Beobachtungsfehler aufgetreten sind
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Versuchsleiter:innen
+
+#### Standardisierung, Automatisierung, Versuchsleiter-Training
+
+**Versuchsablauf standardisieren: **
+* Präzises und detailliertes Ablaufprotokoll festlegen
+* Systematische & unsystematische Störeinflüsse reduzieren, die durch Unterschiede im Ablauf entstehen können (z.B. unterschiedliche Erläuterungen/Instruktionen des VL)
+
+**Versuchsleiter trainieren: **
+* Einüben des Ablaufs (idealerweise anhand eines Ablaufprotokolls)
+* Systematische & unsystematische Störeinflüsse reduzieren, die durch fehlerhafte Durchführung des Versuchs entstehen können
+
+**Versuchsablauf automatisieren: **
+* Ersetzen des Versuchsleiters durch z.B. Computer
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Situation
+
+#### Konstanthaltung
+
+* Ausprägung der Störvariable in allen Bedingungen gleichhalten
+
+* Verhindert systematische & unsystematische Störeinflüsse
+
+  * z.B. Kontext: alle Versuchsbedingungen in gleicher Umgebung durchführen
+
+  * z.B. Temperatur: identisch klimatisierte Laborräume
+
+  * z.B. Instruktion: identische Wortwahl in allen Versuchsbedingungen
+
+Beispiel: Großgruppeninterventionen (Expositionstherapie im Flugzeug)
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Situation
+
+#### Elimination
+
+* Einfluss der Störvariablen komplett verhindern
+
+* Verhindert systematische & unsystematische Störeinflüsse
+
+  * z.B. Lärm: Schallisolierung
+  
+  * z.B. Licht: Fenster abdunkeln
+  
+  * z.B. Anwesenheit anderer Personen: individuelle Datenerhebung
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Situation
+
+#### Kontrollfaktoren
+
+* Einbeziehen der SV in das Untersuchungsdesign als Kontrollfaktor
+* Effekte der UV & der SV können analysiert werden
+  * z.B. UV Frustration: 2 Stufen (frustriert, nicht frustriert)
+  * z.B. SV Tageszeit als Kontrollfaktor: 2 Stufen (vor vs. nach Mittag)
+  
+* Untersuchung mit 4 Gruppen:
+  1. frustriert & vor dem Mittagessen
+  2. nicht frustriert & vor dem Mittagessen
+  3. frustriert & nach dem Mittagessen
+  4. nicht frustriert & nach dem Mittagessen
+  
+* Unterschied 1 vs. 2 $\rightarrow$ Frustration; 
+* Unterschied 1 vs. 3 $\rightarrow$ Tageszeit
+
+---
+class: top, left
+### Versuchsdurchführung
+
+#### Reihenfolge
+
+#### Ausbalancieren
+
+* Reihenfolgeeffekte kontrollieren: alle möglichen Reihenfolgen realisieren; auf Effekte der Reihenfolge prüfen
+
+* Vermeiden von Positions- & Sequenzeffekten bei Messwiederholung (Lernen, Ermüdung, Carry-Over-Effekte)
+
+* Beispiel: Effekte von Lärm (UV) auf kognitive Leistungen (AV: Konzentrationstest)
+  * Versuchsablauf A: (1) Test mit Lärm; (2) Test ohne Lärm
+  * Ergebnis: Leistung (2) > Leistung (1) $\rightarrow$ Interpretation? Lerneffekt?
+  * $\rightarrow$ Ausbalancieren: zusätzliche Versuchsbedingung B
+  * Versuchsablauf B: (1) Test ohne Lärm; (2) Test mit Lärm
+  
+Nachteil: 
+* Aufwand
+
+* Bei k Versuchsbedingungen sind k! Reihenfolgen notwendig (2! = 2; 3! = 6; 4! = 24; ...; 10! = 3.628.800)
+
+
