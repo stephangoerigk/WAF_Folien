@@ -15,18 +15,18 @@ shapiro.test(anx$Exam)
 
 library(kableExtra)
 
-var1 = rnorm(1000000, 100, 15)
+var1 = rnorm(10000, 100, 15)
 var2 = faux::rnorm_pre(var1, mu = 10, sd = 5, r = sample(0.5, 1))
 population = data.frame(var1, var2)
 
 cor(population$var1, population$var2)
 
-stichprobe = population[sample(1:1000000, 30),]
+stichprobe = population[sample(1:10000, 30),]
 
 ggplot(population, aes(var1, var2)) +
   geom_point()
 
-ggplot(population[sample(1:1000000, 30),], aes(var1, var2)) +
+ggplot(population[sample(1:10000, 30),], aes(var1, var2)) +
   geom_point()
 
 
