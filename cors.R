@@ -1,3 +1,5 @@
+anx = read.csv("https://raw.githubusercontent.com/stephangoerigk/WAF_Folien/master/exam_anxiety.csv")
+
 anx = foreign::read.spss("/Users/stephangoerigk/Desktop/Universität/Fresenius/Übung zur Computergestützten Datenanalyse/SS2017/Field_DataSets/dsus4data/Exam Anxiety.sav", to.data.frame = T)
 anx = BBmisc::dropNamed(anx, drop = "Code")
 
@@ -5,6 +7,7 @@ levels(anx$Gender) = c("Female", "Male")
 
 anx$Exam[anx$Gender == "Male" & anx$Exam > 90] =  anx$Anxiety[anx$Gender == "Male" & anx$Exam > 90] + 3
 
+write.csv(anx, "exam_anxiety.csv", row.names = F)
 
 ggplot(anx, aes(x=Anxiety, y = Exam)) +
   geom_point() +

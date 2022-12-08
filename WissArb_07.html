@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Einheit</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Stephan Goerigk" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/hygge.css" rel="stylesheet" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+name: Title slide
+class: middle, left
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+# Wissenschaftliches Arbeiten und Forschungsmethoden
+
+### Einheit 7: Auswertung von Studien
+##### 08.12.2022 | Dr. phil. Stephan Goerigk
+
+---
+class: top, left
+### Auswertung von Studien
+
+####  Datenauswertung
+
+* Die Auswertung des Untersuchungsmaterials erfolgt nach den Vorgaben des Analyseplans in der Präregistrierung 
+
+* Im Mittelpunkt der Auswertung hypothesenprüfender Untersuchungen stehen statistische Signifikanztests
+
+* Ausgang der Tests ist die Entscheidungsgrundlage dafür, ob die forschungsleitende Hypothese als bestätigt gelten oder abgelehnt werden soll.
+
+* Die inhaltliche Interpretation der Ergebnisse nimmt auf die Theorie Bezug, aus der die Hypothese abgeleitet wurde.  
+
+---
+class: top, left
+### Auswertung von Studien
+
+####  Datenbereinigung
+
+Vor Beginn der Hypothesenprüfung:
+
+* versuchen, Eingabefehler zu identifizieren
+
+* Datensatz um Fehler bereinigen
+
+Eingabefehler:
+
+* oft Werte, die außerhalb des zulässigen Wertebereichs einer Variablen liegen
+
+* hat eine Variable nur wenige Stufen (z. B. Geschlecht: 0, 1), lässt man sich mit einem geeigneten Befehl ausgeben, wie oft die Werte der betrachteten Variablen vorkommen 
+
+* Bei Variablen ohne exakt festgelegten Wertebereich (z. B. Alter) ist auf Extremwerte zu achten; so sind Altersangaben größer als 100 z. B. sehr unwahrscheinlich und sollten überprüft werden. 
+
+* Extremwerte springen auch bei graphischen Darstellungen ins Auge (Histogramm, Boxplot)
+
+---
+class: top, left
+### Auswertung von Studien
+
+####  Datenbereinigung
+
+Beispiel: Eingabefehler
+
+* Häufigkeiten Anzeigen lassen (z. B. Geschlecht: 0, 1) 
+
+* Erhielte man nun die Angabe, dass der Wert »0« (für männlich) 456-mal vorkommt, der Wert »1« 435-mal und der Wert »9« 3-mal, hat man damit bereits 3 Eingabefehler identifiziert. 
+
+* Nun lässt man sich die Nummern all derjenigen Fälle ausgeben, bei denen »Geschlecht=9« auftaucht. 
+
+* Bei diesen Personen muss man in den Originalfragebögen nachschauen, welches Geschlecht sie angegeben haben und die entsprechenden Angaben in der Datendatei ändern. 
+
+---
+class: top, left
+### Auswertung von Studien
+
+####  Datenbereinigung
+
+* Die Datenbereinigung sollte abgeschlossen sein, bevor mit den Hypothesenprüfungen begonnen wird. 
+
+* Stellt sich erst im nachhinein heraus, dass noch gravierende Kodierungs- oder Eingabefehler in den Daten stecken, müssen die Analysen wiederholt werden. 
+
+* Zudem bestünde die Gefahr, beim Bereinigen der Daten bewusst oder unbewusst im Sinne der eigenen Hypothesen vorzugehen. 
+
+* Dies betrifft auch die Frage, welche Fälle wegen fehlender oder fragwürdiger Angaben ggf. ganz aus den Analysen ausgeschlossen werden sollen.
+
+---
+class: top, left
+### Auswertung von Studien
+
+####  Missing-Data (unvollständige Datensätze)
+
+Wann entstehen fehlende Werte:
+
+* wenn Untersuchungsteilnehmer vollständig ausfallen 
+
+* wenn die ursprünglich vorgesehenen Stichprobenumfänge nicht realisiert werden konnten – entstehen Missing-Data-Probleme.
+
+Probleme:
+
+* kleineres N `\(\rightarrow\)` weniger Power
+* größere Standardfehler
+* Verzerrungen, wenn Missings mit anderen Merkmalen zusammenhängen
+* manche Tests lassen sich nicht rechnen
+
+---
+class: top, left
+### Auswertung von Studien
+
+####  Missing-Data (unvollständige Datensätze)
+&lt;small&gt;
+
+**Umgang mit fehlenden Werten:**
+
+1. Ignorieren
+  * Manche stat. Tests können gut mit fehlenden Werten umgehen (z.B. einige Regressionsmodelle)
+  * Sollte immer berichtet und bei der Interpretation berücksichtigt werden
+
+2. Complete-Case Analyse
+  * Nur auf Basis vollständiger Datensätze rechnen
+  * ok, wenn man ausreichend große Stichprobe hat
+  * Vorsicht: wenn UV zu Dropout führt können Verzerrungen resultieren
+
+3. Imputation
+  * Schätzung und Ersetzen der fehlenden Werte anhand eines statistischen Modells
+  * gut unter der MCAR oder MAR Annahme
+  * Unterschiedliche Komplexität der Schätzer
+    * leicht: gruppenspez. Mittelwert oder Median
+    * komplex: z.B. Random Forest Imputation
+  * State of the Art: Multiple Imputation (mehrfaches Ersetzen und Hypothesentest auf Durchschnitt der Ersetzungen berechnen)
+
+* Einen ausführlichen Überblick von Missing-Data-Techniken findet man bei Schafer und Graham, 2002, bzw. West, 2001.)
+
+&lt;/small&gt;
+
+---
+class: top, left
+### Auswertung von Studien
+
+####  Stichprobenbeschreibung (die Tabelle 1)
+
+* Hat man die ersten Eingangskontrollen durchlaufen, er- stellt man üblicherweise zunächst eine Stichprobendeskription, bevor man zu den Hypothesentests übergeht.
+
+Hierzu berichtet man für die gängigen sozialstatistischen bzw. soziodemographischen Merkmale ...
+  * Geschlecht
+  * Alter
+  * Familienstand
+  * Bildungsgrad, Tätigkeit* Einkommen
+  * Wohnort 
+  * ...etc.
+
+Wenn das soziodemographische Merkmal numerisch ist:
+  * M (SD)
+  * Med (IQR)
+Wenn das soziodemographische Merkmal kategorial ist:
+  * N (%)
+
+---
+class: top, left
+### Auswertung von Studien
+
+####  Stichprobenbeschreibung (die Tabelle 1)
+
+* Neben allgemeinen soziodemografischen Variablen werden in der Stichprobenbeschreibung auch weitere für das Studienthema relevante Merkmale aufgeführt 
+
+Beispiel: Studie über Computerspiele
+
+* die Computererfahrungen der Probanden 
+
+* durchschnittliche Spielzeit/Woche
+
+* ...
+---
+class: top, left
+### Auswertung von Studien
+
+####  Stichprobenbeschreibung (die Tabelle 1)
+
+Bericht:
+
+* Die dekriptiven Ergebnisse werden in einer Tabelle (Tabelle 1) zusammengefasst
+
+* Werden im Studiendesgin mehrere Gruppen untersicht sollte es eine Spalte pro Gruppe, sowie eine "Gesamt" Spalte geben
+
+* Ggf. können dann auch für jede Stichprobenvariable Signifikanztests berechnet werden, um zu prüfen, ob es Gruppenunterschiede gibt (wären dann Störeinflüsse)
+
+`\(\rightarrow\)` Debatte: Viele Signifikanztests haben hohe alpha-Fehler Kumulierung (deshalb oft nur deskriptive Beschreibung)
+ 
+---
+class: top, left
+### Hypothesen und Hypothesentests
+
+#### Hypothesentest - To-Do Liste
+
+Zur erfolgreichen Durchführung eines Hypothesentests müssen folgende wichtige Schritte geschehen
+
+1. Austellen von Nullhypothese und Alternativhypothese (Hypothesenpaar)
+
+2. Bestimmung einer zugrundeliegenden Verteilung
+
+3. Festlegung des Annahme- und Ablehnungsbereichs der Nullhypothese (kritischer Wert)
+
+4. Berechnung Teststatistik (Beobachtungswert in auf Wahrscheinlichkeitsverteilung abbilden)
+  * z-Wert
+  * t-Wert
+  * F-Wert
+  * `\(\chi^2\)`-Wert
+
+5. Vergleich kritischer Wert und Teststatistik
+
+6. Entscheidung: Test signifikant oder nicht signifikant
+
+
+---
+class: top, left
+### Hypothesen und Hypothesentests
+
+#### Ein- und Zweiseitige Hypothesen - Graphisch
+
+.pull-left[
+.center[
+&lt;img src="WissArb_07_files/figure-html/unnamed-chunk-1-1.png" width="400px" /&gt;
+]
+]
+.center[
+.pull-right[
+&lt;img src="WissArb_07_files/figure-html/unnamed-chunk-2-1.png" width="400px" /&gt;
+]
+]
+
+---
+class: top, left
+### Hypothesen und Hypothesentests
+
+#### Ein- und Zweiseitige Hypothesen - Graphisch
+
+.center[
+&lt;img src="WissArb_07_files/figure-html/unnamed-chunk-3-1.png" width="400px" /&gt;
+]
+
+---
+class: top, left
+### Hypothesen und Hypothesentests
+
+#### Ein- und Zweiseitige Hypothesen - Graphisch
+
+.pull-left[
+.center[
+&lt;img src="WissArb_07_files/figure-html/unnamed-chunk-4-1.png" width="400px" /&gt;
+]
+]
+
+.pull-right[
+* Erwartungswert: wahrscheinlichster Wert unter Annahme der `\(H_{0}\)` 
+
+Beispiel: 
+* `\(H_{0}\)`: `\(𝜇= 173\)`
+* wenn `\(𝜇= 173\)` dann `\(𝜇-173=0\)`
+* Erwartungswert unter Annahme der `\(H_{0}\)` = 0
+
+* dunkelblaue Fläche: Verwerfungsbereich `\(H_{0}\)`
+* hellblaue Fläche: Annahmebereich `\(H_{0}\)`
+]
+
+---
+class: top, left
+### Hypothesen und Hypothesentests
+
+#### Ein- und Zweiseitige Hypothesen - Graphisch
+
+.pull-left[
+.center[
+&lt;img src="WissArb_07_files/figure-html/unnamed-chunk-5-1.png" width="400px" /&gt;
+]
+]
+
+.pull-right[
+* rote Linie: Kritischer Wert
+
+* Um zu glauben, dass `\(𝜇\neq 173\)` `\((H_{1})\)` muss der beobachtete Wert ausreichend weit vom Erwartungswert der `\(H_{0}=0\)` wegliegen
+
+* Als Schwelle/Entscheidungsgrundlage definiert man einen kritischen Wert
+
+* Dieser liegt oft bei dem Wert, der unter Annahme der Wahrscheinlichkeitsverteilung 5% Auftretenswahrscheinlichkeit hat
+
+In Worten: Der beobachtete Wert ist unter Annahme der `\(H_{0}\)` nur 5% wahrscheinlich, somit ist es auf Basis der Beobachtung unwahrscheinlich, dass die `\(H_{0}\)` zutrifft.
+]
+
+---
+class: top, left
+### Auswertung von Studien
+
+####  Interpretation
+
+
+* Signifikante Ergebnisse bestätigen (vorläufig) die Theorie 
+
+* nichtsignifikante Ergebnisse schränken ihren Geltungsbereich ein. 
+
+* Die Ergebnisse von Auswertungen, die über die eigentliche Hypothesenprüfung hinausgehen, sind explorativ 
+
+`\(\rightarrow\)` müssen auch in dieser Weise dargestellt werden.
+
+
+---
+class: top, left
+### Auswertung von Studien
+
+####  Was gehört in den Methodenteil?
+
+* Neben Stichprobenbeschreibung, Messinstrumenten und Versuchsdurchführung wird im Methodenteil auch auf die Daten- analyse eingegangen
+
+Was sind must-haves:
+
+* Verwendetes Signifikanzniveau
+* Verwendete Analysesoftware
+* Umgang mit fehlenden Werten
+* relevante Transformationen der Daten (Skalierung, Aggregation zu Metavariablen, Zentrierung...)
+* Ggf. Korrektur für multiples Testen
+* Einordnung: einseitie vs. zweiseitige Tests
+* Nennung und Beschreibung der Hypothesentests (in Spezialfällen auch des Auswahlrationals) durchgeführt 
+* Zu Beginn: Ggf. kurzer Abschnitt zur  Power-Analyse
+
+---
+class: top, left
+### Auswertung von Studien
+
+####  Was gehört in den Methodenteil?
+
+**Detailgrad:**
+
+&lt;small&gt;
+
+* Generell wenden wir uns bei der Abfassung eines Forschungs- berichtes an einen methodisch und fachlich vorinformierten Leserkreis. 
+* kurz skizieren welchen statistischen Verfahren die erhobenen Daten ausgewertet wurden
+
+* Eine genaue Beschreibung der Methoden wie z. B. die Wiedergabe von Formeln ist hierbei nicht erforderlich
+
+Gängige Methoden:
+* Zweifelsfalle genügen für Einzelverfahren Verweise auf einschlägige Statistikbücher/Paper
+* Erläuterung wesentlicher Parameter:
+  * Welche Variable nahm welche Rolle ein
+  * Welche Optionen/Varianten des Verfahrens wurde warum gewählt (z.B.  Pearson vs. Spearman Korrelation)
+
+Eigenentwicklungen oder um relativ neue, wenig bekannte Methoden:
+* nachvollziehbar dargestellen
+* Genaue Funktionsweise dokumentieren
+
+&lt;/small&gt;
+
+---
+class: top, left
+### Auswertung von Studien
+
+####  Was gehört in den Ergebnisteil?
+
+* Nach der Stichprobenbeschreibung Befunde zu den einzelnen Fragestellungen und Hypothesen berichten. 
+
+* Konsistenz: Strukturierung aus dem Theorieteil übernehmen und die einzelnen Fragestellungen und Theorien in derselben Reihenfolge abarbeiten. 
+
+* Deskriptivstatistische Ergebnisse für Fragestellungen und inferenzstatistische Ergebnisse für Hypothesen werden teils in den Fließtext integriert, teils durch Tabellen und Grafiken veranschaulicht. 
+
+* Dieselbe Information sollte allerdings nicht mehrfach wiederholt werden (außer bei zentralen Befunden).
+
+* Grafiken: lockern den Fließtext auf und sind besonders aufmerksamkeitsträchtig `\(\rightarrow\)` für besonders wichtige Ergebnisse vorsehen
+
+Ziel:
+
+Balance zwischen präziser Information durch zahlreiche statistische Befunde einerseits und flüssiger Lesbarkeit andererseits.
+
+---
+class: top, left
+### Auswertung von Studien
+
+#### Ergebnisteil: Lesbarkeit
+
+* umfassende Tabellen, die für das Verständnis des Fließtextes nicht zwingend erforderlich sind, in den Anhang auslagern
+
+* Prozentzahlen ganzzahlig runden (auch wenn dann in der Summe manchmal 99% oder 101% resultiert)
+
+* statistische Kennwerte (z. B. Mittelwerte, Standardabweichungen, Korrelationskoeffizienten etc.) mit zwei Nachkommastellen angegeben
+
+* Jede Tabelle und jede Grafik im Fließtext muss fortlaufend nummeriert sein und zudem ohne Kenntnis des Fließtextes verständlich sein. 
+
+---
+class: top, left
+### Auswertung von Studien
+
+#### Ergebnisteil: Must-haves
+
+* zentrale Deskriptivstatistiken (z.B. Mittelwerte beim Mittelwertsvergleich)
+* Größe des in der Untersuchung ermittelten Effekts 
+* Konfidenzintervall für diesen Effekt
+* p-Werte
+* Teststatistiken (ggf. mit Freiheitsgraden)
+* Effektstärken (r, Cohens d, `\(R^2\)`, `\(\eta^2\)`)
+
+* Weitaus strengere Vorschriften at die American Psychological Association (APA) für die Publikation empirischer Studien festgelegt 
+
+---
+class: top, left
+### Auswertung von Studien
+
+#### Ergebnisteil: Ergebnisse von Hypothesentests
+
+* Korrelation
+
+  * `\(r\)` = 0.13, 95% CI [-0.13, 0.38], `\(p\)` = 0.312, `\(R^2\)` = 0.02
+
+* t-Test
+
+  * `\(\Delta_{M}\)` = -51.46, 95% CI [-104.87, 1.95], `\(t(49.09)\)` = -1.94, `\(p\)` = 0.059; Cohen's d = -0.55, 95% CI [-1.12, 0.02]
+
+* `\(\chi^2\)`-Test
+
+  * `\(r_{G1}=41\%\)`, `\(r_{G2}=70\%\)`, `\(\chi^2_{79}&lt;.001\)`
+
+* Regressionsparameter
+
+  * `\(\beta\)` = 0.64, 95% CI [-0.62, 1.89], `\(t(57)\)` = 1.02, `\(p\)` = 0.312
+
+* F-Tests (z.B. ANOVAs)
+
+  * Regressionsmodell: `\(R^2\)` = 0.02, F(1, 57) = 1.04, `\(p\)` = 0.312
+  * ANOVA: `\(F(3, 54)\)` = 683.77, `\(p\)` &lt; .001, `\(\eta^2=0.97\)`, 95% CI [0.96, 1.00]
+
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
