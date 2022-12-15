@@ -181,22 +181,26 @@ class: top, left
 
 ####  Stichprobenbeschreibung (die Tabelle 1)
 
+<small>
+
 * Hat man die ersten Eingangskontrollen durchlaufen, er- stellt man üblicherweise zunächst eine Stichprobendeskription, bevor man zu den Hypothesentests übergeht.
 
 Hierzu berichtet man für die gängigen sozialstatistischen bzw. soziodemographischen Merkmale ...
   * Geschlecht
   * Alter
   * Familienstand
-  * Bildungsgrad, Tätigkeit* Einkommen
+  * Bildungsgrad, Tätigkeit
+  * Einkommen
   * Wohnort 
   * ...etc.
 
-Wenn das soziodemographische Merkmal numerisch ist:
+* Wenn das soziodemographische Merkmal numerisch ist:
   * M (SD)
   * Med (IQR)
-Wenn das soziodemographische Merkmal kategorial ist:
+* Wenn das soziodemographische Merkmal kategorial ist:
   * N (%)
-
+  
+</small>
 ---
 class: top, left
 ### Auswertung von Studien
@@ -226,7 +230,7 @@ Bericht:
 
 * Ggf. können dann auch für jede Stichprobenvariable Signifikanztests berechnet werden, um zu prüfen, ob es Gruppenunterschiede gibt (wären dann Störeinflüsse)
 
-$\rightarrow$ Debatte: Viele Signifikanztests haben hohe alpha-Fehler Kumulierung (deshalb oft nur deskriptive Beschreibung)
+$\rightarrow$ Debatte: Viele Signifikanztests haben hohe $\alpha$-Fehler Kumulierung (deshalb oft nur deskriptive Beschreibung)
  
 ---
 class: top, left
@@ -405,7 +409,7 @@ class: top, left
 
 ####  Was gehört in den Methodenteil?
 
-* Neben Stichprobenbeschreibung, Messinstrumenten und Versuchsdurchführung wird im Methodenteil auch auf die Daten- analyse eingegangen
+* Neben Stichprobenbeschreibung, Messinstrumenten und Versuchsdurchführung wird im Methodenteil auch auf die Datenanalyse eingegangen
 
 Was sind must-haves:
 
@@ -428,7 +432,7 @@ class: top, left
 
 <small>
 
-* Generell wenden wir uns bei der Abfassung eines Forschungs- berichtes an einen methodisch und fachlich vorinformierten Leserkreis. 
+* Generell wenden wir uns bei der Abfassung eines Forschungsberichtes an einen methodisch und fachlich vorinformierten Leserkreis. 
 * kurz skizieren welchen statistischen Verfahren die erhobenen Daten ausgewertet wurden
 
 * Eine genaue Beschreibung der Methoden wie z. B. die Wiedergabe von Formeln ist hierbei nicht erforderlich
@@ -500,6 +504,8 @@ class: top, left
 
 #### Ergebnisteil: Ergebnisse von Hypothesentests
 
+<small>
+
 * Korrelation
 
   * $r$ = 0.13, 95% CI [-0.13, 0.38], $p$ = 0.312, $R^2$ = 0.02
@@ -521,7 +527,7 @@ class: top, left
   * Regressionsmodell: $R^2$ = 0.02, F(1, 57) = 1.04, $p$ = 0.312
   * ANOVA: $F(3, 54)$ = 683.77, $p$ < .001, $\eta^2=0.97$, 95% CI [0.96, 1.00]
 
-
+</small>
 
 
 
