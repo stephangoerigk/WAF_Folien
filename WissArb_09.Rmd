@@ -58,7 +58,7 @@ class: middle, left
 # Wissenschaftliches Arbeiten und Forschungsmethoden
 
 ### Einheit 9: Literaturrecherche und Zitation
-##### 12.01.2022 | Dr. phil. Stephan Goerigk
+##### 12.01.2023 | Dr. phil. Stephan Goerigk
 
 ---
 class: top, left
