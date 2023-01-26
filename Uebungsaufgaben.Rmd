@@ -66,6 +66,8 @@ class: top, left
 
 #### Bundesjugendspiele
 
+<small>
+
 * Für die Auswertung der diesjährigen Bundesjugendspiele soll geprüft werden, ob die Leistung im Speerwurf mit der im Weitsprung zusammenhängt.
 
 * Es wurde eine Stichprobe von 12 Schülern der 11. Klasse in beiden Disziplinen geprüft. Die Platzierung im Wettkampf wurde jeweils in einer tabelle eingetragen:
@@ -106,11 +108,15 @@ b) Stellen Sie das Hypothesenpaar aus $H_{0}$ und $H_{1}$ auf.
 
 c) Prüfen Sie mit einem angemessenen Korrelationsverfahren, ob es einen signifikanten statistischen Zusammenhang zwischen den Variablen gibt $(\alpha=.05)$. 
 
+</small>
+
 ---
 class: top, left
 ### Übung 2
 
 #### Klassische Musik
+
+<small>
 
 * In einer Studie soll geprüft werden, ob die Anzahl an Stunden die Kinder pro Woche klassische Musik hören positiv mit deren Intelligenz zusammenhängt.
 
@@ -142,11 +148,14 @@ c) Berechnen Sie, wie viele IQ Punkte ein Kind im Schnitt zusätzlich hätte, we
 
 d) Wie viele IQ Punkte hätte ein Kind, wenn es 0h klassische Musik hört?
 
+</small>
+
 ---
 class: top, left
 ### Übung 3
 
 #### Lebensqualität
+<small>
 
 * Eine Therapeutin hat eine neue Unterform der kognitiven Verhaltenstherapie entwickelt, bei der besonders auf Patientenfeedback geachtet wird.
 
@@ -171,12 +180,14 @@ b) Berechnen Sie die durschnittliche Verbesserung der Teilnehmer und ein angemes
 
 c) Prüfen Sie, ob sich die Therapie signifikant positiv auf die Lebensqualität auswirkt $(\alpha=.05)$. Normalverteilung der Differenzwerte kann angenommen werden.
 
+</small>
 ---
 class: top, left
 ### Übung 4
 
 #### Emotionsinduktion
 
+<small>
 * Ein Forscher möchte den Effekt von Gruselpodcasts auf die Angst von Versuchspersonen untersuchen.
 
 * Er lässt die Personen jeweils entweder einen Gruselpodcast (Gruppe 1) oder einen Wissenspodcast (Gruppe 2) anhören.
@@ -185,8 +196,7 @@ class: top, left
 
 df = read.csv("https://raw.githubusercontent.com/stephangoerigk/WAF_Folien/master/uebung4.csv")
 
-
-```{r}
+```{r echo=F}
 df <- data.frame(PF = rnorm(30, mean = 10, sd = sqrt(6.12)))
 df2 <- data.frame(PF = rnorm(24, mean = 7, sd = sqrt(6.54)))
 
@@ -208,24 +218,26 @@ c) Prüfen Sie, ob die Annahme der Varianzhomgenität gilt.
 
 d) Berechnen Sie einen Hypthesentest um zu prüfen, ob ersonen ihre Angst im Durchschnitt als höher berichten, wenn sie zuvor einen Gruselpodcast gehört haben $(\alpha=.05)$. Normalverteilung der Differenzwerte kann angenommen werden.
 
+</small>
 ---
 class: top, left
 ### Übung 5
 
 #### Stressexperiment
-
+<small>
 In einem Experiment sollen Auswirkungen von Stress und Ruhe auf die Lernleistung bei verschiedenen Altergruppen untersucht werden. Altergruppen: Kinder, Jugendliche, Erwachsene. Lernleistung von gemessen in der Anzahl gemachter Fehler in einer altersstandardisierten Gedächtnisaufgabe.
 
 df = read.csv("https://raw.githubusercontent.com/stephangoerigk/WAF_Folien/master/uebung5.csv")
 
-```{r}
+```{r echo = F}
+set.seed(123)
 g_k_Stress = data.frame(Errors = round(rnorm(5, 6, 2)))
 g_j_Stress = data.frame(Errors = round(rnorm(5, 12, 2)))
 g_e_Stress = data.frame(Errors = round(rnorm(5, 10, 2)))
 
-g_k_Ruhe = data.frame(Errors = round(rnorm(5, 2, 2)))
-g_j_Ruhe = data.frame(Errors = round(rnorm(5, 2, 2)))
-g_e_Ruhe = data.frame(Errors = round(rnorm(5, 2, 2)))
+g_k_Ruhe = data.frame(Errors = round(rnorm(5, 3, 1.5)))
+g_j_Ruhe = data.frame(Errors = round(rnorm(5, 3, 1.5)))
+g_e_Ruhe = data.frame(Errors = round(rnorm(5, 3, 1.5)))
 
 g_k_Stress$Bedingung = "Stress"
 g_j_Stress$Bedingung = "Stress"
@@ -258,6 +270,6 @@ c) Stellen Sie die Ergebnisse graphisch dar (Stress auf X-Achse, Alter als Farbe
 
 d) Führe Sie mit dem emmeans Paket Post-Hoc Vergleiche durch. Was lässt sich anhand der Ergebnisse über Auswirkungen von Stress und Ruhe auf die Lernleistung der verschiedenen Altergruppen aussagen?
 
-
+</small>
 
 

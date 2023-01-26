@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Einheit</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Stephan Goerigk" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/hygge.css" rel="stylesheet" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+name: Title slide
+class: middle, left
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+# R-Übung
+
+### Übungsaufgaben
+##### 26.01.2023 | Dr. phil. Stephan Goerigk
+
+---
+class: top, left
+### Übung 1
+
+#### Bundesjugendspiele
+
+&lt;small&gt;
+
+* Für die Auswertung der diesjährigen Bundesjugendspiele soll geprüft werden, ob die Leistung im Speerwurf mit der im Weitsprung zusammenhängt.
+
+* Es wurde eine Stichprobe von 12 Schülern der 11. Klasse in beiden Disziplinen geprüft. Die Platzierung im Wettkampf wurde jeweils in einer tabelle eingetragen:
+
+df = read.csv("https://raw.githubusercontent.com/stephangoerigk/WAF_Folien/master/uebung1.csv")
+
+
+
+
+**Aufgaben:**
+
+a) Stellen Sie den Zusammenhang zwischen den Variablen graphisch dar.
+
+b) Stellen Sie das Hypothesenpaar aus `\(H_{0}\)` und `\(H_{1}\)` auf.
+
+c) Prüfen Sie mit einem angemessenen Korrelationsverfahren, ob es einen signifikanten statistischen Zusammenhang zwischen den Variablen gibt `\((\alpha=.05)\)`. 
+
+&lt;/small&gt;
+
+---
+class: top, left
+### Übung 2
+
+#### Klassische Musik
+
+&lt;small&gt;
+
+* In einer Studie soll geprüft werden, ob die Anzahl an Stunden die Kinder pro Woche klassische Musik hören positiv mit deren Intelligenz zusammenhängt.
+
+* Es wurde eine Gruppe von 13 Kindern über ihren klassischen Musikkonsum (in Stunden pro Woche) befragt, danach wurde ein Intelligenztest absolviert und der Intelligenzquotient (IQ) berechnet.
+
+df = read.csv("https://raw.githubusercontent.com/stephangoerigk/WAF_Folien/master/uebung2.csv")
+
+
+
+**Aufgaben:**
+
+a) Stellen Sie das Hypothesenpaar aus `\(H_{0}\)` und `\(H_{1}\)` auf.
+
+b) Prüfen Sie mittels einem angemessenen Korrelationsverfahren, ob es einen signifikanten statistischen Zusammenhang zwischen den Variablen gibt `\((\alpha=.05)\)`. 
+
+c) Berechnen Sie, wie viele IQ Punkte ein Kind im Schnitt zusätzlich hätte, wenn es eine weitere Stunde klassische Musik hört.
+
+d) Wie viele IQ Punkte hätte ein Kind, wenn es 0h klassische Musik hört?
+
+&lt;/small&gt;
+
+---
+class: top, left
+### Übung 3
+
+#### Lebensqualität
+&lt;small&gt;
+
+* Eine Therapeutin hat eine neue Unterform der kognitiven Verhaltenstherapie entwickelt, bei der besonders auf Patientenfeedback geachtet wird.
+
+* Sie möchte prüfen, ob diese neue Therapievariante die Lebensqualität von Patient:innen signifikant erhöhen kann.
+
+* Sie misst zunächst die Lebensqualität (Prä-Messung), führt dann die Therapie durch und misst dann erneut die Lebensqualität (Post-Messung).
+
+df = read.csv("https://raw.githubusercontent.com/stephangoerigk/WAF_Folien/master/uebung3.csv")
+
+
+
+**Aufgaben:**
+
+a) Stellen Sie `\(H_{0}\)` und `\(H_{1}\)` auf.
+
+b) Berechnen Sie die durschnittliche Verbesserung der Teilnehmer und ein angemessenes Sreuungsmaß.
+
+c) Prüfen Sie, ob sich die Therapie signifikant positiv auf die Lebensqualität auswirkt `\((\alpha=.05)\)`. Normalverteilung der Differenzwerte kann angenommen werden.
+
+&lt;/small&gt;
+---
+class: top, left
+### Übung 4
+
+#### Emotionsinduktion
+
+&lt;small&gt;
+* Ein Forscher möchte den Effekt von Gruselpodcasts auf die Angst von Versuchspersonen untersuchen.
+
+* Er lässt die Personen jeweils entweder einen Gruselpodcast (Gruppe 1) oder einen Wissenspodcast (Gruppe 2) anhören.
+
+* Seine Annahme lautet, dass die Personen ihre Angst auf einer Skala von 1-15 Punkten im Durchschnitt höher berichten, wenn sie zuvor einen Gruselpodcast gehört haben.
+
+df = read.csv("https://raw.githubusercontent.com/stephangoerigk/WAF_Folien/master/uebung4.csv")
+
+
+
+**Aufgaben:**
+
+a) Stellen Sie `\(H_{0}\)` und `\(H_{1}\)` auf.
+
+b) Berechnen Sie die Mittelwerte der beiden Gruppen
+
+c) Prüfen Sie, ob die Annahme der Varianzhomgenität gilt.
+
+d) Berechnen Sie einen Hypthesentest um zu prüfen, ob ersonen ihre Angst im Durchschnitt als höher berichten, wenn sie zuvor einen Gruselpodcast gehört haben `\((\alpha=.05)\)`. Normalverteilung der Differenzwerte kann angenommen werden.
+
+&lt;/small&gt;
+---
+class: top, left
+### Übung 5
+
+#### Stressexperiment
+&lt;small&gt;
+In einem Experiment sollen Auswirkungen von Stress und Ruhe auf die Lernleistung bei verschiedenen Altergruppen untersucht werden. Altergruppen: Kinder, Jugendliche, Erwachsene. Lernleistung von gemessen in der Anzahl gemachter Fehler in einer altersstandardisierten Gedächtnisaufgabe.
+
+df = read.csv("https://raw.githubusercontent.com/stephangoerigk/WAF_Folien/master/uebung5.csv")
+
+
+
+**Aufgaben:**
+
+a) Berechnen Sie eine 2-faktorielle Anova, in der sie sowohl Haupt- als auch Interaktionseffekte berücksichtigen.
+
+b) Interpretieren Sie die F-Tests der ANOVA inhaltlich.
+
+c) Stellen Sie die Ergebnisse graphisch dar (Stress auf X-Achse, Alter als Farbe)
+
+d) Führe Sie mit dem emmeans Paket Post-Hoc Vergleiche durch. Was lässt sich anhand der Ergebnisse über Auswirkungen von Stress und Ruhe auf die Lernleistung der verschiedenen Altergruppen aussagen?
+
+&lt;/small&gt;
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"slideNumberFormat": "%current%",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
