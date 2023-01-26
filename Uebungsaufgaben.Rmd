@@ -1,0 +1,263 @@
+---
+title: "Einheit"
+subtitle: "⚔<br/>with xaringan"
+author: "Dr. Stephan Goerigk"
+institute: "RStudio, PBC"
+date: "2016/12/12 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: [xaringan-themer.css, "hygge"]
+    lib_dir: libs
+    nature:
+      slideNumberFormat: "%current%"
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9'
+    seal: false
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+
+setwd("/Users/stephangoerigk/Desktop/Universität/CFH/Lehre/Bachelor/Empirisch-wissenschaftliches Arbeiten/VO_Wissenschaftliches Arbeiten und Forschungsmethoden/WAF_Folien/")
+
+library(tidyverse)
+library(kableExtra)
+library(ggplot2)
+library(plotly)
+library(htmlwidgets)
+library(MASS)
+library(ggpubr)
+library(xaringanthemer)
+library(xaringanExtra)
+
+style_duo_accent(
+  primary_color = "#621C37",
+  secondary_color = "#EE0071",
+  background_image = "blank.png"
+)
+
+xaringanExtra::use_xaringan_extra(c("tile_view"))
+
+# use_scribble(
+#   pen_color = "#EE0071",
+#   pen_size = 4
+#   )
+
+knitr::opts_chunk$set(
+  fig.retina = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+name: Title slide
+class: middle, left
+<br><br><br><br><br><br><br>
+# R-Übung
+
+### Übungsaufgaben
+##### 26.01.2023 | Dr. phil. Stephan Goerigk
+
+---
+class: top, left
+### Übung 1
+
+#### Bundesjugendspiele
+
+* Für die Auswertung der diesjährigen Bundesjugendspiele soll geprüft werden, ob die Leistung im Speerwurf mit der im Weitsprung zusammenhängt.
+
+* Es wurde eine Stichprobe von 12 Schülern der 11. Klasse in beiden Disziplinen geprüft. Die Platzierung im Wettkampf wurde jeweils in einer tabelle eingetragen:
+
+df = read.csv("https://raw.githubusercontent.com/stephangoerigk/WAF_Folien/master/uebung1.csv")
+
+
+```{r echo = F}
+set.seed(123)
+N = 12
+df = data.frame(ID = c(paste0(rep(1:N))),
+                Schlaf = c(3,7,8,4,12,2,6,5,11,10,1,9)
+)
+
+df$Konzentration = c(1,4,8,5,10,2,9,6,11,12,3,7)
+df$Konzentration = round(df$Konzentration)
+names(df) = c("Schüler:in", "Rangplatz Frauen", "Rangplatz Männer")
+df$`Rangplatz Männer`[df$`Rangplatz Männer` > 10] = 10
+df$`Rangplatz Männer`[df$`Rangplatz Männer` < 1] = 1
+df$`Rangplatz Frauen`[df$`Rangplatz Frauen` > 10] = 10
+df$`Rangplatz Frauen`[df$`Rangplatz Frauen` < 1] = 1
+
+df[, "Differenz (d)"] = df$`Rangplatz Frauen` - df$`Rangplatz Männer` 
+names(df) = c("Schüler:in", "Rang Speerwurf (X)", "Rang Weitsprung (Y)", "Differenz (d)")
+
+df2 = df
+df = as.data.frame(df)
+#rownames(df) = NULL
+
+write.csv(df, "uebung1.csv")
+```
+
+**Aufgaben:**
+
+a) Stellen Sie den Zusammenhang zwischen den Variablen graphisch dar.
+
+b) Stellen Sie das Hypothesenpaar aus $H_{0}$ und $H_{1}$ auf.
+
+c) Prüfen Sie mit einem angemessenen Korrelationsverfahren, ob es einen signifikanten statistischen Zusammenhang zwischen den Variablen gibt $(\alpha=.05)$. 
+
+---
+class: top, left
+### Übung 2
+
+#### Klassische Musik
+
+* In einer Studie soll geprüft werden, ob die Anzahl an Stunden die Kinder pro Woche klassische Musik hören positiv mit deren Intelligenz zusammenhängt.
+
+* Es wurde eine Gruppe von 13 Kindern über ihren klassischen Musikkonsum (in Stunden pro Woche) befragt, danach wurde ein Intelligenztest absolviert und der Intelligenzquotient (IQ) berechnet.
+
+df = read.csv("https://raw.githubusercontent.com/stephangoerigk/WAF_Folien/master/uebung2.csv")
+
+```{r echo = F}
+set.seed(123)
+N = 13
+df = data.frame(ID = c(paste0(rep(1:N))),
+                Musik = round(c(rnorm(N, 8, 2)))
+)
+
+df$IQ = faux::rnorm_pre(df$Musik, mu = 100, sd = 15, r = 0.1, empirical = T)
+df$IQ = round(df$IQ)
+names(df) = c("ID", "Musik", "IQ")
+
+write.csv(df, "uebung2.csv")
+```
+
+**Aufgaben:**
+
+a) Stellen Sie das Hypothesenpaar aus $H_{0}$ und $H_{1}$ auf.
+
+b) Prüfen Sie mittels einem angemessenen Korrelationsverfahren, ob es einen signifikanten statistischen Zusammenhang zwischen den Variablen gibt $(\alpha=.05)$. 
+
+c) Berechnen Sie, wie viele IQ Punkte ein Kind im Schnitt zusätzlich hätte, wenn es eine weitere Stunde klassische Musik hört.
+
+d) Wie viele IQ Punkte hätte ein Kind, wenn es 0h klassische Musik hört?
+
+---
+class: top, left
+### Übung 3
+
+#### Lebensqualität
+
+* Eine Therapeutin hat eine neue Unterform der kognitiven Verhaltenstherapie entwickelt, bei der besonders auf Patientenfeedback geachtet wird.
+
+* Sie möchte prüfen, ob diese neue Therapievariante die Lebensqualität von Patient:innen signifikant erhöhen kann.
+
+* Sie misst zunächst die Lebensqualität (Prä-Messung), führt dann die Therapie durch und misst dann erneut die Lebensqualität (Post-Messung).
+
+df = read.csv("https://raw.githubusercontent.com/stephangoerigk/WAF_Folien/master/uebung3.csv")
+
+```{r echo = F}
+df = data.frame(Prä = c(4,6,3,7,2,8,3,5,6,4),
+                Post = c(6,7,8,7,4,7,6,6,8,5))
+
+write.csv(df, "uebung3.csv")
+```
+
+**Aufgaben:**
+
+a) Stellen Sie $H_{0}$ und $H_{1}$ auf.
+
+b) Berechnen Sie die durschnittliche Verbesserung der Teilnehmer und ein angemessenes Sreuungsmaß.
+
+c) Prüfen Sie, ob sich die Therapie signifikant positiv auf die Lebensqualität auswirkt $(\alpha=.05)$. Normalverteilung der Differenzwerte kann angenommen werden.
+
+---
+class: top, left
+### Übung 4
+
+#### Emotionsinduktion
+
+* Ein Forscher möchte den Effekt von Gruselpodcasts auf die Angst von Versuchspersonen untersuchen.
+
+* Er lässt die Personen jeweils entweder einen Gruselpodcast (Gruppe 1) oder einen Wissenspodcast (Gruppe 2) anhören.
+
+* Seine Annahme lautet, dass die Personen ihre Angst auf einer Skala von 1-15 Punkten im Durchschnitt höher berichten, wenn sie zuvor einen Gruselpodcast gehört haben.
+
+df = read.csv("https://raw.githubusercontent.com/stephangoerigk/WAF_Folien/master/uebung4.csv")
+
+
+```{r}
+df <- data.frame(PF = rnorm(30, mean = 10, sd = sqrt(6.12)))
+df2 <- data.frame(PF = rnorm(24, mean = 7, sd = sqrt(6.54)))
+
+df$Gruppe = "G1"
+df2$Gruppe = "G2"
+
+df = rbind(df, df2)
+
+write.csv(df, "uebung4.csv")
+```
+
+**Aufgaben:**
+
+a) Stellen Sie $H_{0}$ und $H_{1}$ auf.
+
+b) Berechnen Sie die Mittelwerte der beiden Gruppen
+
+c) Prüfen Sie, ob die Annahme der Varianzhomgenität gilt.
+
+d) Berechnen Sie einen Hypthesentest um zu prüfen, ob ersonen ihre Angst im Durchschnitt als höher berichten, wenn sie zuvor einen Gruselpodcast gehört haben $(\alpha=.05)$. Normalverteilung der Differenzwerte kann angenommen werden.
+
+---
+class: top, left
+### Übung 5
+
+#### Stressexperiment
+
+In einem Experiment sollen Auswirkungen von Stress und Ruhe auf die Lernleistung bei verschiedenen Altergruppen untersucht werden. Altergruppen: Kinder, Jugendliche, Erwachsene. Lernleistung von gemessen in der Anzahl gemachter Fehler in einer altersstandardisierten Gedächtnisaufgabe.
+
+df = read.csv("https://raw.githubusercontent.com/stephangoerigk/WAF_Folien/master/uebung5.csv")
+
+```{r}
+g_k_Stress = data.frame(Errors = round(rnorm(5, 6, 2)))
+g_j_Stress = data.frame(Errors = round(rnorm(5, 12, 2)))
+g_e_Stress = data.frame(Errors = round(rnorm(5, 10, 2)))
+
+g_k_Ruhe = data.frame(Errors = round(rnorm(5, 2, 2)))
+g_j_Ruhe = data.frame(Errors = round(rnorm(5, 2, 2)))
+g_e_Ruhe = data.frame(Errors = round(rnorm(5, 2, 2)))
+
+g_k_Stress$Bedingung = "Stress"
+g_j_Stress$Bedingung = "Stress"
+g_e_Stress$Bedingung = "Stress"
+
+g_k_Ruhe$Bedingung = "Ruhe"
+g_j_Ruhe$Bedingung = "Ruhe"
+g_e_Ruhe$Bedingung = "Ruhe"
+
+g_k_Stress$Gruppe = "Kinder"
+g_j_Stress$Gruppe = "Jugendliche"
+g_e_Stress$Gruppe = "Erwachsene"
+
+g_k_Ruhe$Gruppe = "Kinder"
+g_j_Ruhe$Gruppe = "Jugendliche"
+g_e_Ruhe$Gruppe = "Erwachsene"
+
+df = rbind(g_k_Ruhe, g_j_Ruhe, g_e_Ruhe, g_k_Stress, g_j_Stress, g_e_Stress)
+
+write.csv(df, "uebung5.csv")
+```
+
+**Aufgaben:**
+
+a) Berechnen Sie eine 2-faktorielle Anova, in der sie sowohl Haupt- als auch Interaktionseffekte berücksichtigen.
+
+b) Interpretieren Sie die F-Tests der ANOVA inhaltlich.
+
+c) Stellen Sie die Ergebnisse graphisch dar (Stress auf X-Achse, Alter als Farbe)
+
+d) Führe Sie mit dem emmeans Paket Post-Hoc Vergleiche durch. Was lässt sich anhand der Ergebnisse über Auswirkungen von Stress und Ruhe auf die Lernleistung der verschiedenen Altergruppen aussagen?
+
+
+
+
