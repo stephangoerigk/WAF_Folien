@@ -1,0 +1,22 @@
+
+% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
+% Date and time: Thu, Jun 22, 2023 - 13:32:26
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Max} \\ 
+\hline \\[-1.8ex] 
+df & 3 & 2.333 & 1.155 & 1 & 3 \\ 
+df\_error & 3 & 26.000 & 0.000 & 26 & 26 \\ 
+Mean\_Square & 3 & 148.650 & 16.107 & 130.052 & 157.950 \\ 
+F & 3 & 11.605 & 10.453 & 5.027 & 23.658 \\ 
+p & 3 & 0.003 & 0.004 & 0.00005 & 0.007 \\ 
+Eta2\_partial & 3 & 0.419 & 0.055 & 0.367 & 0.476 \\ 
+Eta2\_partial\_CI\_low & 3 & 0.151 & 0.079 & 0.084 & 0.237 \\ 
+Eta2\_partial\_CI\_high & 3 & 1.000 & 0.000 & 1 & 1 \\ 
+\hline \\[-1.8ex] 
+\end{tabular} 
+\end{table} 
