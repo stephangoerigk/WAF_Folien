@@ -58,7 +58,7 @@ class: middle, left
 # R-Übung
 
 ### Übungsaufgaben
-##### 26.01.2023 | Dr. phil. Stephan Goerigk
+##### 22.06.2023 | Prof. Dr. phil. Stephan Goerigk
 
 ---
 class: top, left
