@@ -58,7 +58,7 @@ class: middle, left
 # R-Übung
 
 ### Übungsaufgaben
-##### 22.06.2023 | Prof. Dr. phil. Stephan Goerigk
+##### 29.06.2023 | Prof. Dr. phil. Stephan Goerigk
 
 ---
 class: top, left
@@ -91,7 +91,7 @@ df$`Rangplatz Frauen`[df$`Rangplatz Frauen` > 10] = 10
 df$`Rangplatz Frauen`[df$`Rangplatz Frauen` < 1] = 1
 
 df[, "Differenz (d)"] = df$`Rangplatz Frauen` - df$`Rangplatz Männer` 
-names(df) = c("Schüler:in", "Rang Speerwurf (X)", "Rang Weitsprung (Y)", "Differenz (d)")
+names(df) = c("Schüler", "Rang Speerwurf", "Rang Weitsprung", "Differenz")
 
 df2 = df
 df = as.data.frame(df)
@@ -176,7 +176,7 @@ write.csv(df, "uebung3.csv")
 
 a) Stellen Sie $H_{0}$ und $H_{1}$ auf.
 
-b) Berechnen Sie die durschnittliche Verbesserung der Teilnehmer und ein angemessenes Sreuungsmaß.
+b) Berechnen Sie die durschnittliche Verbesserung der Teilnehmer und ein angemessenes Streuungsmaß.
 
 c) Prüfen Sie, ob sich die Therapie signifikant positiv auf die Lebensqualität auswirkt $(\alpha=.05)$. Normalverteilung der Differenzwerte kann angenommen werden.
 
